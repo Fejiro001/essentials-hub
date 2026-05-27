@@ -9,6 +9,7 @@ import CatalogDetails from "./pages/CatalogDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -34,10 +35,9 @@ function App() {
         <Route exact path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* Footer */}
+      <Footer />
     </>
   );
 }
 
 export default App;
-
