@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import CatalogDetails from "./pages/CatalogDetails";
@@ -9,7 +10,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <>
-      {/* Header */}
+      <Header/>
       {/* Main */}
       <Routes>
         <Route exact path="/" element={<Home />} />
