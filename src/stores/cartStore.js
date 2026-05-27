@@ -4,7 +4,11 @@ import { persist } from "zustand/middleware";
 export const useCartStore = create(
   persist(
     (set, get) => ({
-      cart: []
+      cart: [],
+      addItem: () => ({}),
+      removeItem: () => ({}),
+      updateQuantityt: () => ({}),
+      clearCart: () => ({})
     }),
     { name: "cart" }
   )
