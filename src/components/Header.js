@@ -51,12 +51,17 @@ function Header(props) {
               <LuShoppingBag />
             </Link>
             {isAuthenticated ? (
-              <button
-                className="user-btn"
-                title="User Profile"
-                onClick={() => setProfileModal(!showProfileModal)}>
-                <span>{user?.name[0]}</span>
-              </button>
+              <div className="profile-container">
+                <button
+                  className="user-btn"
+                  title="User Profile"
+                  onClick={() => setProfileModal(!showProfileModal)}>
+                  <span>{user?.name[0]}</span>
+                </button>
+                {showProfileModal && (
+                  <UserProfileModal setProfileModal={setProfileModal} />
+                )}
+              </div>
             ) : (
               <button
                 className="login-btn"
@@ -74,9 +79,6 @@ function Header(props) {
           </div>
         </div>
       </header>
-      {showProfileModal && (
-        <UserProfileModal setProfileModal={setProfileModal} />
-      )}
     </>
   );
 }
