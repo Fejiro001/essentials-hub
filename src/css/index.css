@@ -79,7 +79,8 @@ header {
 
 .header-container,
 .nav-links,
-.logo {
+.logo,
+.user-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -89,7 +90,8 @@ header {
   padding: 1.5rem 0;
 }
 
-.logo {
+.logo,
+.user-actions {
   gap: 0.8rem;
 }
 
@@ -139,4 +141,20 @@ header {
 .nav-links a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.login-btn {
+  padding: 1rem 1.5rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: 1px solid var(--color-black);
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+
+.login-btn:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
