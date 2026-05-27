@@ -10,15 +10,15 @@ function LoginModal() {
 
   return (
     <div className="modal-overlay">
-      <div className="modal">
+      <div className="login-modal">
         <div className="modal-header">
           <h2>Welcome Back</h2>
-          <button>
+          <button className="close-btn">
             <LuX />
           </button>
         </div>
         <form className="modal-form" onSubmit={handleSubmit(() => {})}>
-          <div>
+          <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -28,7 +28,7 @@ function LoginModal() {
             />
             {errors.email && <span className="error">Valid email is required</span>}
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -38,10 +38,14 @@ function LoginModal() {
             />
             {errors.password && <span className="error">Password must be at least 6 characters</span>}
           </div>
-          <button type="submit">Sign In</button>
+          <button type="submit" className="login-btn">
+            Sign In
+          </button>
         </form>
-        <p>
-          New here? <button type="button">Create an account</button>
+        <p className="signup-link">
+          New here? <button type="button" className="create-account-btn">
+            Create an account
+          </button>
         </p>
       </div>
     </div>
