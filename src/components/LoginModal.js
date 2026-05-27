@@ -3,7 +3,8 @@ import { toast } from "sonner";
 import { LuX } from "react-icons/lu";
 
 function LoginModal(props) {
-  const { setIsLoginModalOpen, authMode, setAuthMode } = props;
+  const { setIsLoginModalOpen, authMode, setAuthMode, setIsAuthenticated, setUser } =
+    props;
   const isSignUp = authMode === "signup";
 
   const {
@@ -26,7 +27,10 @@ function LoginModal(props) {
       storedUser.password === data.password
     ) {
       toast.success("Login successful!");
+
+      setUser(storedUser);
       setIsLoginModalOpen(false);
+      setIsAuthenticated(true);
     } else {
       toast.error("Invalid email or password");
     }

@@ -17,9 +17,10 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    setIsAuthenticated(!!storedUser);
-    setUser(storedUser);
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    setIsAuthenticated(!!currentUser);
+    setUser(currentUser);
   }, []);
 
   return (
@@ -30,14 +31,17 @@ function App() {
           setIsLoginModalOpen={setIsLoginModalOpen}
           authMode={authMode}
           setAuthMode={setAuthMode}
+          setIsAuthenticated={setIsAuthenticated}
+          setUser={setUser}
         />
       )}
       <Header
-        setIsLoginModalOpen={setIsLoginModalOpen}
         user={user}
-        isAuthenticated={isAuthenticated}
-        authMode={authMode}
+        setIsLoginModalOpen={setIsLoginModalOpen}
         setAuthMode={setAuthMode}
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+        setUser={setUser}
       />
       {/* Main */}
       <Routes>
