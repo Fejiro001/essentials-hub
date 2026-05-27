@@ -66,3 +66,47 @@ li {
 a {
   text-decoration: none;
 }
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-transform: uppercase;
+}
+
+.header-container,
+.nav-links,
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-container {
+  padding: 1.5rem 0;
+}
+
+.logo {
+  gap: 0.8rem;
+}
+
+.logo h1 {
+  color: var(--color-black);
+  font-size: var(--fs-md);
+  font-weight: 900;
+}
+
+.nav-links {
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-muted);
+  position: relative;
+  transition: var(--transition);
+}
