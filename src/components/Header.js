@@ -2,7 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../media/logo.svg";
 import { LuShoppingBag } from "react-icons/lu";
 
-function Header() {
+function Header(props) {
+  const { setIsLoginModalOpen } = props;
+
   return (
     <header>
       <div className="container header-container">
@@ -39,7 +41,10 @@ function Header() {
           <Link to="/cart" className="cart-btn" title="View Cart">
             <LuShoppingBag />
           </Link>
-          <button className="login-btn" title="Login">
+          <button
+            className="login-btn"
+            title="Login"
+            onClick={() => setIsLoginModalOpen(true)}>
             Login
           </button>
         </div>

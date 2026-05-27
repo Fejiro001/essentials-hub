@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import LoginModal from "./components/LoginModal";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import CatalogDetails from "./pages/CatalogDetails";
@@ -8,9 +10,12 @@ import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
 function App() {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
   return (
     <>
-      <Header/>
+      <LoginModal />
+      <Header setIsLoginModalOpen={setIsLoginModalOpen} />
       {/* Main */}
       <Routes>
         <Route exact path="/" element={<Home />} />
