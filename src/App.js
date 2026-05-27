@@ -1,4 +1,8 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "sonner";
+import Header from "./components/Header";
+import LoginModal from "./components/LoginModal";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import CatalogDetails from "./pages/CatalogDetails";
@@ -7,9 +11,20 @@ import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
 function App() {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState("login");
+
   return (
     <>
-      {/* Header */}
+      <Toaster position="top-right" />
+      {isLoginModalOpen && (
+        <LoginModal
+          setIsLoginModalOpen={setIsLoginModalOpen}
+          authMode={authMode}
+          setAuthMode={setAuthMode}
+        />
+      )}
+      <Header setIsLoginModalOpen={setIsLoginModalOpen} />
       {/* Main */}
       <Routes>
         <Route exact path="/" element={<Home />} />
