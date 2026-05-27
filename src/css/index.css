@@ -212,6 +212,11 @@ form .form-group {
   margin-bottom: 1.5rem;
 }
 
+.modal-header h2 {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
 .modal-header .close-btn {
   background: transparent;
   font-size: var(--fs-md);
@@ -239,7 +244,7 @@ form .form-group {
 }
 
 .modal-form .form-group label {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   font-weight: 500;
 }
 
@@ -251,6 +256,11 @@ form .form-group {
 .modal-form .form-group input:focus {
   border-color: var(--color-black);
   outline: none;
+}
+
+.form-group .error {
+  color: #df1f1f;
+  font-size: var(--fs-sm);
 }
 
 .signup-link {
