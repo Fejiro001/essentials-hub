@@ -36,9 +36,9 @@ function Header() {
           </ul>
         </nav>
         <div className="user-actions">
-          <button className="cart-btn" title="View Cart">
+          <Link to="/cart" className="cart-btn" title="View Cart">
             <LuShoppingBag />
-          </button>
+          </Link>
           <button className="login-btn" title="Login">
             Login
           </button>

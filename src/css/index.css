@@ -167,6 +167,7 @@ header {
   padding: 1rem;
   font-size: var(--fs-md);
   background-color: transparent;
+  color: var(--color-black);
   border-radius: 50%;
 }
 
