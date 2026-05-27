@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { LuX } from "react-icons/lu";
 
 function LoginModal(props) {
@@ -13,19 +14,50 @@ function LoginModal(props) {
     formState: { errors }
   } = useForm();
 
-  // If user is signed up, compare their login details from localStorage and log them in. If not, create a new user and store their details in localStorage.
+  const handleLogin = (data) => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (!storedUser) {
+      toast.error("No user found. Please sign up first.");
+      return;
+    }
+
+    if (
+      storedUser &&
+      storedUser.email === data.email &&
+      storedUser.password === data.password
+    ) {
+      toast.success("Login successful!");
+      setIsLoginModalOpen(false);
+    } else {
+      toast.error("Invalid email or password");
+    }
+  };
+
+  const handleSignUp = (data) => {
+    const newUser = {
+      name: data.name,
+      email: data.email,
+      password: data.password
+    };
+    localStorage.setItem("user", JSON.stringify(newUser));
+    toast.success("Account created successfully!");
+    setAuthMode("login");
+  };
 
   return (
     <div className="modal-overlay">
       <div className="login-modal">
         <div className="modal-header">
           <h2>{isSignUp ? "Join Essentials Hub" : "Welcome Back"}</h2>
-          <button className="close-btn">
+          <button
+            className="close-btn"
+            onClick={() => setIsLoginModalOpen(false)}>
             <LuX />
           </button>
         </div>
 
-        <form className="modal-form" onSubmit={handleSubmit(() => {})}>
+        <form className="modal-form" onSubmit={handleSubmit(isSignUp ? handleSignUp : handleLogin)}>
           {isSignUp && (
             <div className="form-group">
               <label htmlFor="name">Name</label>

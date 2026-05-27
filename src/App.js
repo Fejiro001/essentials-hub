@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "sonner";
 import Header from "./components/Header";
 import LoginModal from "./components/LoginModal";
 import Home from "./pages/Home";
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+      <Toaster position="top-right" />
       <LoginModal
         isLoginModalOpen={isLoginModalOpen}
         setIsLoginModalOpen={setIsLoginModalOpen}
