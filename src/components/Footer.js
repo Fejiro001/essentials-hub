@@ -15,15 +15,15 @@ function Footer() {
       <div className="container footer-container">
         <div className="footer-top">
           <article className="company-info">
-            <div className="logo">
+            <div className="footer-logo">
               <img src={logo} alt="Essentials Hub Logo" />
-              <h1 className="logo-text">Essentials Hub</h1>
+              <h2 className="logo-text">Essentials Hub</h2>
             </div>
-            <p>
+            <p className="company-about">
               Curated essentials for the modern wardrobe and home. Designed to
               last, priced to love.
             </p>
-            <ul>
+            <ul className="location-info">
               <li>
                 <LuMapPin />
                 <span>21 Atelier Lane, MB</span>
@@ -37,7 +37,7 @@ function Footer() {
                 <span>+1 (431) 388-0025</span>
               </li>
             </ul>
-            <ul>
+            <ul className="socials-list">
               <li>
                 <LuInstagram />
               </li>
@@ -84,7 +84,7 @@ function Footer() {
           <p className="copyright">
             &copy; 2026 Essentials Hub. All rights reserved.
           </p>
-          <ul>
+          <ul className="policies">
             <li>Privacy Policy</li>
             <li>Terms</li>
             <li>Cookies</li>

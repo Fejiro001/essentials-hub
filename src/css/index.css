@@ -6,7 +6,7 @@
   --color-white: #ffffff;
   --color-gray: #f8f9fa;
   --color-text: #212529;
-  --color-muted: #6c757d;
+  --color-muted: #74777b;
   --color-gray: #a6a6a6;
 
   /* Font Families */
@@ -351,6 +351,95 @@ form .form-group {
   background-color: rgba(166, 166, 166, 0.3);
 }
 
+/* FOOTER */
+footer {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  padding-block: 3rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-logo h2 {
+  font-size: var(--fs-md);
+  font-weight: 900;
+}
+
+.company-info {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.company-info .company-about,
+.location-info li,
+.footer-bottom,
+.policies {
+  color: var(--color-muted);
+  font-size: var(--fs-sm);
+}
+
+.location-info li,
+.socials-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socials-list li {
+  border: 1px solid var(--color-muted);
+  border-radius: 50%;
+  padding: 0.8rem;
+  font-size: var(--fs-sm);
+  transition: var(--transition);
+}
+
+.socials-list li:hover {
+  cursor: pointer;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.footer-list h4 {
+  font-size: var(--fs-base);
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.footer-list li {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  width: fit-content;
+}
+
+.footer-list li:hover {
+  color: var(--color-white);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--color-muted);
+  padding-block: 3rem;
+}
+
+.footer-bottom,
+.policies {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
 /* Media Queries */
 /* Tablet */
 @media (max-width: 1023px) {
@@ -392,5 +481,10 @@ form .form-group {
   .menu-btn {
     display: block;
   }
-}
 
+  .footer-bottom,
+  .policies {
+    flex-direction: column;
+    text-align: center;
+  }
+}
