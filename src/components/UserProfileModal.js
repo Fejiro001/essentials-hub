@@ -1,7 +1,7 @@
-import { LuBox, LuHeart } from "react-icons/lu";
+import { LuBox, LuHeart, LuLogOut } from "react-icons/lu";
 
 function UserProfileModal(props) {
-  const { user } = props;
+  const { user, setAuthMode } = props;
 
   return (
     <div className="user-profile-modal">
@@ -19,7 +19,10 @@ function UserProfileModal(props) {
         </li>
       </ul>
       <div>
-        <button>Sign Out</button>
+        <button className="signout-btn" onClick={() => setAuthMode("signup")}>
+          <LuLogOut />
+          <span>Sign Out</span>
+        </button>
       </div>
     </div>
   );

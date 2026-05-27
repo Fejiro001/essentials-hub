@@ -71,7 +71,7 @@ function Header(props) {
         </div>
       </header>
       {/* USER PROFILE MODAL */}
-      <UserProfileModal user={user} />
+      <UserProfileModal user={user} setAuthMode={setAuthMode} />
     </>
   );
 }
