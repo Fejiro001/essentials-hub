@@ -14,7 +14,10 @@ function App() {
 
   return (
     <>
-      <LoginModal />
+      <LoginModal
+        isLoginModalOpen={isLoginModalOpen}
+        setIsLoginModalOpen={setIsLoginModalOpen}
+      />
       <Header setIsLoginModalOpen={setIsLoginModalOpen} />
       {/* Main */}
       <Routes>

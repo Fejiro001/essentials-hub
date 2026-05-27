@@ -274,6 +274,7 @@ form .form-group {
   text-decoration: underline;
   color: var(--color-muted);
   transition: var(--transition);
+  margin-left: 0.5rem;
 }
 
 .create-account-btn:hover {
