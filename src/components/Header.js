@@ -36,10 +36,12 @@ function Header() {
           </ul>
         </nav>
         <div className="user-actions">
-          <button className="cart-btn">
+          <button className="cart-btn" title="View Cart">
             <LuShoppingBag />
           </button>
-          <button className="login-btn">Login</button>
+          <button className="login-btn" title="Login">
+            Login
+          </button>
         </div>
       </div>
     </header>

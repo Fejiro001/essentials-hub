@@ -30,7 +30,7 @@
   --section-padding: 100px 0;
 
   /* UI */
-  --transition: all 0.3s ease;
+  --transition: all 0.3s ease-in-out;
 }
 
 .container {
@@ -143,6 +143,11 @@ header {
   transform-origin: left;
 }
 
+.login-btn,
+.cart-btn {
+  transition: var(--transition);
+}
+
 .login-btn {
   padding: 1rem 1.5rem;
   background-color: var(--color-black);
@@ -150,11 +155,22 @@ header {
   font-size: var(--fs-sm);
   font-weight: 600;
   border: 1px solid var(--color-black);
-  transition: var(--transition);
   text-transform: uppercase;
 }
 
 .login-btn:hover {
   background-color: var(--color-white);
   color: var(--color-black);
+}
+
+.cart-btn {
+  padding: 1rem;
+  font-size: var(--fs-md);
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.cart-btn:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
