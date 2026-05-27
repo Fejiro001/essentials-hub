@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { LuX } from "react-icons/lu";
+import { useAuthStore } from "../stores/authStore";
 
 function LoginModal(props) {
-  const { setIsLoginModalOpen, authMode, setAuthMode, setIsAuthenticated, setUser } =
-    props;
+  const { setIsLoginModalOpen, authMode, setAuthMode } = props;
   const isSignUp = authMode === "signup";
+
+  const login = useAuthStore((state) => state.login);
+  const signup = useAuthStore((state) => state.signup);
 
   const {
     register,
@@ -14,37 +17,27 @@ function LoginModal(props) {
   } = useForm();
 
   const handleLogin = (data) => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (!storedUser) {
-      toast.error("No user found. Please sign up first.");
+    const result = login(data.email, data.password);
+    if (result?.error) {
+      toast.error(result.error);
       return;
     }
 
-    if (
-      storedUser &&
-      storedUser.email === data.email &&
-      storedUser.password === data.password
-    ) {
-      toast.success("Login successful!");
-
-      setUser(storedUser);
-      setIsLoginModalOpen(false);
-      setIsAuthenticated(true);
-    } else {
-      toast.error("Invalid email or password");
-    }
+    toast.success("Login successful!");
+    setIsLoginModalOpen(false);
   };
 
   const handleSignUp = (data) => {
-    const newUser = {
-      name: data.name,
-      email: data.email,
-      password: data.password
-    };
-    localStorage.setItem("user", JSON.stringify(newUser));
+    const result = signup(data);
+
+    if (result?.error) {
+      toast.error(result.error);
+      return;
+    }
+
     toast.success("Account created successfully!");
     setAuthMode("login");
+    setIsLoginModalOpen(false);
   };
 
   return (

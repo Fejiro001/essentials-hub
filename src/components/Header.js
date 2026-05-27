@@ -3,12 +3,15 @@ import { Link, NavLink } from "react-router-dom";
 import { LuShoppingBag, LuMenu, LuX } from "react-icons/lu";
 import logo from "../media/logo.svg";
 import UserProfileModal from "./UserProfileModal";
+import { useAuthStore } from "../stores/authStore";
 
 function Header(props) {
-  const { setIsLoginModalOpen, user, setUser, isAuthenticated, setIsAuthenticated } =
-    props;
+  const { setIsLoginModalOpen } = props;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showProfileModal, setProfileModal] = useState(false);
+
+  const user = useAuthStore((state) => state.user);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   return (
     <>
@@ -72,12 +75,7 @@ function Header(props) {
         </div>
       </header>
       {showProfileModal && (
-        <UserProfileModal
-          user={user}
-          setIsAuthenticated={setIsAuthenticated}
-          setProfileModal={setProfileModal}
-          setUser={setUser}
-        />
+        <UserProfileModal setProfileModal={setProfileModal} />
       )}
     </>
   );

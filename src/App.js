@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
 import Header from "./components/Header";
@@ -13,15 +13,6 @@ import NotFound from "./pages/NotFound";
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState("login");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-    setIsAuthenticated(!!currentUser);
-    setUser(currentUser);
-  }, []);
 
   return (
     <>
@@ -31,18 +22,9 @@ function App() {
           setIsLoginModalOpen={setIsLoginModalOpen}
           authMode={authMode}
           setAuthMode={setAuthMode}
-          setIsAuthenticated={setIsAuthenticated}
-          setUser={setUser}
         />
       )}
-      <Header
-        user={user}
-        setIsLoginModalOpen={setIsLoginModalOpen}
-        setAuthMode={setAuthMode}
-        isAuthenticated={isAuthenticated}
-        setIsAuthenticated={setIsAuthenticated}
-        setUser={setUser}
-      />
+      <Header setIsLoginModalOpen={setIsLoginModalOpen} />
       {/* Main */}
       <Routes>
         <Route exact path="/" element={<Home />} />
