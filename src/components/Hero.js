@@ -56,7 +56,7 @@ function Hero() {
  
   return (
     <div className="main">
-      <div className="hero">
+      <section className="hero">
         {slides.map((slide, index) => (
           <img
             key={index}
@@ -67,7 +67,7 @@ function Hero() {
             }`}
           />
         ))}
-        <div key={currentImg} className={`hero-txt`}>
+        <div key={currentImg} className='hero-txt'>
           <p className="fine-print">
             CAMPAIGN 0{currentImg + 1} - WINTER 2026
           </p>
@@ -91,7 +91,7 @@ function Hero() {
           </div>
         </div>
         <div className="overlay"></div>        
-      </div>
+      </section>
     </div>
   );
 }
