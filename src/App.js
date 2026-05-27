@@ -16,10 +16,9 @@ function App() {
   return (
     <>
       <Toaster position="top-right" />
-      <LoginModal
-        isLoginModalOpen={isLoginModalOpen}
-        setIsLoginModalOpen={setIsLoginModalOpen}
-      />
+      {isLoginModalOpen && (
+        <LoginModal setIsLoginModalOpen={setIsLoginModalOpen} />
+      )}
       <Header setIsLoginModalOpen={setIsLoginModalOpen} />
       {/* Main */}
       <Routes>

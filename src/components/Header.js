@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { LuShoppingBag, LuMenu, LuX } from "react-icons/lu";
 import logo from "../media/logo.svg";
-import { LuShoppingBag } from "react-icons/lu";
 
 function Header(props) {
   const { setIsLoginModalOpen } = props;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header>
@@ -12,7 +14,7 @@ function Header(props) {
           <img src={logo} alt="Essentials Hub Logo" />
           <h1 className="logo-text">Essentials Hub</h1>
         </Link>
-        <nav>
+        <nav className={isMenuOpen ? "menu-open" : ""}>
           <ul className="nav-links">
             <li>
               <NavLink
@@ -46,6 +48,12 @@ function Header(props) {
             title="Login"
             onClick={() => setIsLoginModalOpen(true)}>
             Login
+          </button>
+          <button
+            className="menu-btn"
+            title="Menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <LuX /> : <LuMenu />}
           </button>
         </div>
       </div>

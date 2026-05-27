@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { LuX } from "react-icons/lu";
 
 function LoginModal(props) {
-  const { isLoginModalOpen, setIsLoginModalOpen } = props;
+  const { setIsLoginModalOpen } = props;
   const [authMode, setAuthMode] = useState("login");
   const isSignUp = authMode === "signup";
 
@@ -56,8 +56,9 @@ function LoginModal(props) {
             <LuX />
           </button>
         </div>
-
-        <form className="modal-form" onSubmit={handleSubmit(isSignUp ? handleSignUp : handleLogin)}>
+        <form
+          className="modal-form"
+          onSubmit={handleSubmit(isSignUp ? handleSignUp : handleLogin)}>
           {isSignUp && (
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -100,7 +101,6 @@ function LoginModal(props) {
             {isSignUp ? "Create Account" : "Sign In"}
           </button>
         </form>
-
         <p className="signup-link">
           {isSignUp ? "Already have an account?" : "New here?"}
           <button
