@@ -178,6 +178,21 @@ header {
   color: var(--color-white);
 }
 
+.user-btn {
+  height: 30px;
+  width: 30px;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.user-btn:hover {
+  background-color: var(--color-muted);
+}
+
 .menu-btn {
   display: none;
   padding: 1rem;

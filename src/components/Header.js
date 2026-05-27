@@ -4,7 +4,7 @@ import { LuShoppingBag, LuMenu, LuX } from "react-icons/lu";
 import logo from "../media/logo.svg";
 
 function Header(props) {
-  const { setIsLoginModalOpen } = props;
+  const { setIsLoginModalOpen, user, isAuthenticated, authMode, setAuthMode } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -43,12 +43,18 @@ function Header(props) {
           <Link to="/cart" className="cart-btn" title="View Cart">
             <LuShoppingBag />
           </Link>
-          <button
-            className="login-btn"
-            title="Login"
-            onClick={() => setIsLoginModalOpen(true)}>
-            Login
-          </button>
+          {isAuthenticated ? (
+            <button className="user-btn" title="User Profile">
+              <span>{user?.name[0]}</span>
+            </button>
+          ) : (
+            <button
+              className="login-btn"
+              title="Login"
+              onClick={() => setIsLoginModalOpen(true)}>
+              Login
+            </button>
+          )}
           <button
             className="menu-btn"
             title="Menu"

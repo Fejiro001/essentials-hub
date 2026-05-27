@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { LuX } from "react-icons/lu";
 
 function LoginModal(props) {
-  const { setIsLoginModalOpen } = props;
-  const [authMode, setAuthMode] = useState("login");
+  const { setIsLoginModalOpen, authMode, setAuthMode } = props;
   const isSignUp = authMode === "signup";
 
   const {
