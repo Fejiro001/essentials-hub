@@ -13,7 +13,7 @@
 }
 
 .checkout-header h2 {
-    font-size: var(--fs-5xl);
+    font-size: var(--fs-6xl);
     font-weight: 900;
     text-transform: uppercase;
 }
@@ -49,10 +49,13 @@
 }
 
 .theform form h2 {
+   counter-increment: section-counter;
     margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     font-size: var(--fs-xl);
-    gap: 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
 }
 
 .theform form h2::before {
