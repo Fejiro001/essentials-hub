@@ -16,3 +16,71 @@
   font-weight: 500;
   color: var(--color-text);
 }
+
+.catalog-products {
+  padding: var(--section-padding);
+}
+
+.catalog-filter {
+  display: grid;
+  place-items: center;
+}
+
+.catalog-filter div {
+  width: 100%;
+  justify-content: center;
+}
+
+.searchbar {
+  position: relative;
+  width: 100%;
+  max-width: 50rem;
+}
+
+.searchbar input {
+  padding: 0.75rem 1.5rem 0.75rem 4rem;
+  border: 1.5px solid var(--color-gray);
+  width: 100%;
+}
+
+.catalog-filter .sort {
+  cursor: pointer;
+  padding: 0.75rem;
+  border: 1.5px solid var(--color-gray);
+}
+
+.searchbar svg {
+  position: absolute;
+  top: 50%;
+  left: 1.4rem;
+  transform: translateY(-50%);
+}
+
+.searchbar input:focus,
+.catalog-filter .sort:focus {
+  border-color: var(--color-black);
+  outline: none;
+}
+
+.catalog-filter div,
+.catalog-filter .filters {
+  display: flex;
+  gap: 2rem;
+}
+
+.catalog-filter .filters {
+  margin-block: 4rem;
+}
+
+.catalog-filter .filters button {
+  background-color: transparent;
+  border: 1px solid var(--color-black);
+  padding: 0.8rem 2rem;
+  text-transform: uppercase;
+  font-size: var(--fs-sm);
+}
+
+.catalog-filter .filters button.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}

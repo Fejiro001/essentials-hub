@@ -7,7 +7,7 @@
   --color-gray: #f8f9fa;
   --color-text: #212529;
   --color-muted: #74777b;
-  --color-gray: #a6a6a6;
+  --color-gray: #b9b9b9;
 
   /* Font Families */
   --heading-font: "Playfair Display", serif;
@@ -441,11 +441,6 @@ footer {
 }
 
 /* Media Queries */
-/* Tablet */
-@media (max-width: 1023px) {
-}
-
-/* Mobile */
 @media (max-width: 767px) {
   .logo h1 {
     display: none;

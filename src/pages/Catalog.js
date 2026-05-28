@@ -1,7 +1,9 @@
 import "../css/Catalog.css";
+import { LuSearch } from "react-icons/lu";
 import CatalogProduct from "../components/CatalogProduct";
 
 const CATEGORIES = [
+  { key: "all", label: "All" },
   { key: "women's clothing", label: "Women's Clothing" },
   { key: "men's clothing", label: "Men's Clothing" },
   { key: "jewelry", label: "Jewelry" },
@@ -75,18 +77,21 @@ function Catalog() {
           <p>Explore our curated collection of essentials</p>
         </div>
       </section>
-      <section>
+      <section className="catalog-products">
         <div className="container">
           <div className="catalog-filter">
             <div>
-              <input type="text" placeholder="Search products..." />
-              <select name="sort">
+              <form className="searchbar">
+                <LuSearch />
+                <input type="text" placeholder="Search products..." />
+              </form>
+              <select className="sort">
                 <option value="default">Default</option>
                 <option value="price-asc">Price: Low to High</option>
                 <option value="pricedesc">Price: High to Low</option>
               </select>
             </div>
-            <ul>
+            <ul className="filters">
               {CATEGORIES.map((cat) => (
                 <li key={cat.key}>
                   <button>{cat.label}</button>
