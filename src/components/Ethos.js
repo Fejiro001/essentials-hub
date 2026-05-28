@@ -4,7 +4,7 @@ function Ethos () {
     return(
         <section className='ethos-section'>
             <div className="ethos-div">
-                <img src={about} className='about-img'></img>
+                <img src={about} className='about-img' alt='about-image'></img>
                 <div className='ethos-txt'>
                     <p>CHAPTER 03 - OUR ETHOS</p>
                     <h2 className='ethos-title'>LESS, BUT BETTER.</h2>

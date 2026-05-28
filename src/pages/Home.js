@@ -1,5 +1,5 @@
 import Hero from "../components/Hero";
-import Blackthing from "../components/Blackthing";
+import Marquee from "../components/Marquee";
 import Collections from "../components/Collections";
 import Reviewblack from "../components/Reviewsblack";
 import Ethos from "../components/Ethos";
@@ -9,7 +9,7 @@ function Home() {
   return(
     <>
       <Hero />
-      <Blackthing />
+      <Marquee />
       <Collections />
       <Reviewblack />
       <Ethos />
