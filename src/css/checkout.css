@@ -10,3 +10,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.checkout-header h2 {
+  color: var(--color-white);
+  font-size: var(--fs-5xl);
+  letter-spacing: 4px;
+}
+
+/* MAIN SECTION */
+.checkout section:last-child {
+  max-width: 1240px;
+  margin: 5rem auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
