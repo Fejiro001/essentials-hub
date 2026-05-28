@@ -173,3 +173,58 @@ aside button:hover {
     background-color: #2b2b2b;
 }
 
+/* Tablet Layout */
+@media (max-width: 1023px) {
+    .checkout section:last-child {
+        grid-template-columns: 1fr; 
+        gap: 3rem;
+        padding-inline: 1.5rem;
+        margin: 3rem auto;
+    }
+
+    .theform {
+        order: 1;
+    }
+    
+    aside {
+        order: 2;
+        width: 100%; 
+    }
+
+    .checkout-header h2 {
+        font-size: var(--fs-4xl);
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+    .checkout-header {
+        height: 220px;
+        padding-block: 3rem;
+    }
+
+    .checkout-header h2 {
+        font-size: var(--fs-3xl);
+    }
+
+    .checkout section:last-child {
+        margin: 2rem auto;
+        padding-inline: 1rem;
+        gap: 3rem;
+    }
+
+    .names, 
+    .theform .group-row { 
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .theform form h2 {
+        font-size: var(--fs-lg);
+        margin-top: 1.5rem;
+    }
+
+    aside {
+        padding: 1.5rem 1rem; 
+    }
+}
