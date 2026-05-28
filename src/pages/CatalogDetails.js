@@ -9,13 +9,47 @@ import {
   LuMinus,
   LuPlus,
   LuShoppingBag,
-  LuStar
+  LuStar,
+  LuTruck,
+  LuRotateCcw,
+  LuShield
 } from "react-icons/lu";
 import { useCartStore } from "../stores/cartStore";
 import { useProducts } from "../hooks/useProducts";
 import CatalogProduct from "../components/CatalogProduct";
+import menCollect from "../media/men.png";
+import womenCollect from "../media/women.png";
+import jewelryCollect from "../media/jewelry.png";
+import electronicsCollect from "../media/electronics.png";
 
 const fakestoreURL = "https://fakestoreapi.com/products";
+
+const COLLECTIONS = [
+  {
+    key: "men's",
+    title: "Men's",
+    image: menCollect,
+    alt: "Mens Section"
+  },
+  {
+    key: "women's",
+    title: "Women's",
+    image: womenCollect,
+    alt: "Womens Section"
+  },
+  {
+    key: "jewelery",
+    title: "Jewelry",
+    image: jewelryCollect,
+    alt: "Jewelry Section"
+  },
+  {
+    key: "electronics",
+    title: "Electronics",
+    image: electronicsCollect,
+    alt: "Electronics Section"
+  }
+];
 
 function CatalogDetails() {
   let { productId } = useParams();
@@ -41,6 +75,10 @@ function CatalogDetails() {
       .slice(0, 3);
   }, [productDetail, products]);
 
+  const collections = COLLECTIONS.filter(
+    (c) => !productDetail?.category.toLowerCase().includes(c.key.toLowerCase())
+  );
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -65,13 +103,17 @@ function CatalogDetails() {
       {productDetail && (
         <>
           <section className="catalog-banner">
-            <div className="container">
-              <h2>{productDetail.title}</h2>
+            <div className="container banner-container">
+              <h2>Catalog details</h2>
               <p>{productDetail.category}</p>
             </div>
           </section>
-          <section>
-            <Link to="/catalog">
+        </>
+      )}
+      <div className="container detail-container">
+        {productDetail && (
+          <section className="product-data">
+            <Link className="back-to-catalog" to="/catalog">
               <LuArrowLeft />
               <span>Back to Catalog</span>
             </Link>
@@ -80,19 +122,21 @@ function CatalogDetails() {
                 <img src={productDetail.image} alt={productDetail.title} />
               </div>
               <div className="detail-info">
-                <p>{productDetail.category}</p>
-                <h3>{productDetail.title}</h3>
+                <p className="category">{productDetail.category}</p>
+                <h2 className="title">{productDetail.title}</h2>
                 <div className="detail-extra">
                   <p className="detail-price">${productDetail.price}</p>
                   <div className="detail-stats">
                     <LuStar />
                     <p className="detail-rate">{productDetail.rating.rate}</p>
                     <p className="detail-count">
-                      ({productDetail.rating.count})
+                      ({productDetail.rating.count} reviews)
                     </p>
                   </div>
                 </div>
-                <p>{productDetail.description}</p>
+                <p className="detail-description">
+                  {productDetail.description}
+                </p>
                 <div className="product-actions">
                   <div className="product-quantity">
                     <button
@@ -119,30 +163,67 @@ function CatalogDetails() {
                     onClick={() => addItemToCart(productDetail)}
                     className="add-cart-btn">
                     <LuShoppingBag />
-                    <span>Add</span>
+                    <span>Add to cart</span>
                   </button>
                   <button className="favorite-btn">
                     <LuHeart />
                   </button>
                 </div>
+                <ul className="extra-benefits">
+                  <li>
+                    <LuTruck />
+                    <p>Free shipping</p>
+                    <p>On orders $75+</p>
+                  </li>
+                  <li>
+                    <LuRotateCcw />
+                    <p>30-day returns</p>
+                    <p>Easy & free</p>
+                  </li>
+                  <li>
+                    <LuShield />
+                    <p>2-year warranty</p>
+                    <p>Quality assured</p>
+                  </li>
+                </ul>
               </div>
             </article>
           </section>
-        </>
-      )}
-      <section className="related">
-        <p className="subtitle">Pairs well with</p>
-        <h2>You might also like</h2>
-        <ul>
-          {relatedProducts.map((related) => (
-            <CatalogProduct product={related} />
-          ))}
-        </ul>
-      </section>
-      <section className="explore">
-        <p className="subtitle">Keep browsing</p>
-        <h2>Explore other collections</h2>
-      </section>
+        )}
+        <section className="related">
+          <p className="subtitle">Pairs well with</p>
+          <h2 className="title">You might also like</h2>
+          <ul className="related-products">
+            {relatedProducts.map((related) => (
+              <li key={related.id} className="related-item">
+                <CatalogProduct product={related} />
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section className="explore">
+          <p className="subtitle">Keep browsing</p>
+          <h2 className="title">Explore other collections</h2>
+          <div className="collection-imgs">
+            {collections.map((collection) => (
+              <div className="box-img" key={collection.title}>
+                <img
+                  src={collection.image}
+                  className="collection-sing"
+                  alt={collection.alt}
+                />
+
+                <div className="box-img-text">
+                  <h3>{collection.title}</h3>
+                  <p className="gray">SHOP COLLECTION</p>
+                </div>
+
+                <div className="overlay"></div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
