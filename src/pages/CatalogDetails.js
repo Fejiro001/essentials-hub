@@ -1,6 +1,6 @@
 import "../css/CatalogDetails.css";
 import { Link, redirect, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import {
@@ -29,10 +29,17 @@ function CatalogDetails() {
     toast.success("Item added to cart");
   };
 
-  const relatedProducts = products
-    .filter((p) => p.category === productDetail.category)
-    .filter((p) => p.id !== productDetail.id)
-    .slice(0, 3);
+  // Memoizing to prevent recalculations
+  const relatedProducts = useMemo(() => {
+    if (!productDetail || !products.length) return [];
+
+    return products
+      .filter(
+        (p) =>
+          p.category === productDetail.category && p.id !== productDetail.id
+      )
+      .slice(0, 3);
+  }, [productDetail, products]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -124,6 +131,7 @@ function CatalogDetails() {
         </>
       )}
       <section className="related">
+        <p className="subtitle">Pairs well with</p>
         <h2>You might also like</h2>
         <ul>
           {relatedProducts.map((related) => (
@@ -132,7 +140,8 @@ function CatalogDetails() {
         </ul>
       </section>
       <section className="explore">
-        <h2>You might also like</h2>
+        <p className="subtitle">Keep browsing</p>
+        <h2>Explore other collections</h2>
       </section>
     </main>
   );
