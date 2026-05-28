@@ -68,7 +68,7 @@ function Catalog() {
           <ul className="catalog-products">
             {loading
               ? Array.from({ length: 20 }).map((_, index) => (
-                  <CatalogProductSkeleton />
+                  <CatalogProductSkeleton key={index} />
                 ))
               : products.map((product) => (
                   <li className="product" key={product.id}>

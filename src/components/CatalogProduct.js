@@ -1,13 +1,15 @@
-import { LuStar, LuShoppingBag, LuHeart } from "react-icons/lu";
+import { useState } from "react";
 import { useCartStore } from "../stores/cartStore";
+import { LuStar, LuShoppingBag, LuHeart } from "react-icons/lu";
 import { toast } from "sonner";
 
 function CatalogProduct(props) {
   const { product } = props;
+  const [quantityCount, setQuantityCount] = useState(1);
   const addItem = useCartStore((state) => state.addItem);
 
   const addItemToCart = (product) => {
-    addItem(product);
+    addItem(product, quantityCount);
     toast.success("Item added to cart");
   };
 
@@ -32,9 +34,25 @@ function CatalogProduct(props) {
         </div>
         <div className="product-actions">
           <div className="product-quantity">
-            <input className="decrement" type="button" value="-" />
-            <input className="quantity" type="text" value={1} readOnly />
-            <input className="increment" type="button" value="+" />
+            <input
+              className="decrement"
+              type="button"
+              value="-"
+              onClick={() => setQuantityCount(quantityCount - 1)}
+              disabled={quantityCount === 1}
+            />
+            <input
+              className="quantity"
+              type="text"
+              value={quantityCount}
+              readOnly
+            />
+            <input
+              className="increment"
+              type="button"
+              value="+"
+              onClick={() => setQuantityCount(quantityCount + 1)}
+            />
           </div>
           <button
             onClick={() => addItemToCart(product)}

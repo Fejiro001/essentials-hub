@@ -216,9 +216,13 @@
   transition: var(--transition);
 }
 
-.product-quantity input[type="button"]:hover {
+.product-quantity input[type="button"]:not(:disabled):hover {
   background-color: var(--color-black);
   color: var(--color-white);
+}
+
+.product-quantity input[type="button"]:disabled {
+  cursor: not-allowed;
 }
 
 .product-quantity input[type="text"] {
