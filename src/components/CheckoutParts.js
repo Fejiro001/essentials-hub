@@ -21,14 +21,15 @@ function CheckoutParts () {
             <section className="checkout-header">
                 <h2>CHECKOUT</h2>
             </section>
-            <section className="checkout-body">
+            <section className="checkout-body container">
+
                 <div className="theform">
-                    <Link to="/cart">
+                    <Link className="back-to-cart" to="/cart">
                         <LuArrowLeft/>
                         Back To Cart
                     </Link>
                     <form>
-                        <h2>Billing details</h2>
+                        <h2>Billing Details</h2>
                         <div className="names">
                            <div className="group">
                                 <label>FIRST NAME</label>
@@ -64,7 +65,7 @@ function CheckoutParts () {
                             <label>COUNTRY</label>
                             <input type="text" placeholder="Country"/>
                         </div>
-                        <h2>Payment details</h2>
+                        <h2>Payment Details</h2>
                          <div className="group">
                             <label>CARDHOLDER NAME</label>
                             <input type="text" placeholder="Cardholder Name"/>

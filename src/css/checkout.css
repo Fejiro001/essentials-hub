@@ -13,7 +13,7 @@
 }
 
 .checkout-header h2 {
-    font-size: var(--fs-6xl);
+    font-size: var(--fs-5xl);
     font-weight: 900;
     text-transform: uppercase;
 }
@@ -21,23 +21,27 @@
 /* MAIN SECTION */
 .checkout section:last-child {
    max-width: var(--max-width);
-    margin: 5rem auto;
+ 
     display: grid;
     grid-template-columns: 2fr 1fr; 
     gap: 25rem; 
     padding-inline: 1rem;
 } 
 
+.checkout-body {
+    padding: var(--section-padding);
+}
+
 /* BACK BUTTON */
-.theform a {
+.theform .back-to-cart {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     width: fit-content;
     margin-bottom: 2rem;
-    color: var(--color-black);
+    color: var(--color-muted);
     font-size: var(--fs-sm);
-    font-weight: 600;
+    font-weight: 400;
 }
 
 /* FORM */
@@ -73,11 +77,11 @@
 }
 
 .group label {
-    font-size: 0.91rem; 
-    font-weight: 400;  
-    letter-spacing: 0.05em; 
-    color: var(--color-muted);
-    font-family: var(--body-font)
+    font-size: var(--fs-sm); 
+    font-weight: 400;   
+    color: var(--color-black);
+    font-family: var(--body-font);
+    text-transform: capitalize;
 }
 
 .theform form input {
