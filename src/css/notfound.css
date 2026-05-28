@@ -10,7 +10,7 @@
 
 .page h2 {
     font-family: var(--heading-font);
-    font-size: var(--fs-6xl);
+    font-size: 160px;
     margin-bottom: 1rem;
 }
 

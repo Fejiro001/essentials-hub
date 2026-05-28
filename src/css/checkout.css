@@ -8,8 +8,9 @@
     background-blend-mode: overlay;
     padding-block: 6rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-inline: 2rem;
 }
 
 .checkout-header h2 {
@@ -38,7 +39,6 @@
     align-items: center;
     gap: 0.5rem;
     width: fit-content;
-    margin-bottom: 2rem;
     color: var(--color-muted);
     font-size: var(--fs-sm);
     font-weight: 400;
