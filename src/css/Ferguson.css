@@ -286,7 +286,7 @@ a {
   font-size: var(--fs-sm);
 }
 
-/* Ethos Page */
+/* Ethos section */
 .ethos-section {
   padding: var(--section-padding);
   background-color: rgb(249, 249, 249);
@@ -360,25 +360,9 @@ a {
     margin-top: 10px;
 }
 
-@media (max-width: 1023px) {
-    .hero{
-        height: 100svh;
-        width: 100%;
-    }
-
-    .left-btn{
-        bottom: 100px;
-        left: 50px;
-    }
-
-    .right-btn{
-        bottom: 10px;
-        right: 10px;
-    }
-}
-
 /* Cart page */
 
+/* Secondary Banner */
 .cart-banner {
   background: url(../media/secondary-banner.png) no-repeat center/cover
     rgb(255, 255, 255, 0.5);
@@ -391,3 +375,39 @@ a {
   font-weight: 900;
   text-transform: uppercase;
 }
+
+/* Main cart section */
+.cart-cont {
+    min-height: calc(100svh - 395px);
+}
+
+.main-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 300px;
+}
+
+.bag-icon {
+    color: var(--color-muted);
+    font-size: 50px;
+}
+
+.main-cart p {
+    color: var(--color-muted);
+}
+
+.main-cart button {
+    color: var(--color-white);
+    background-color: var(--color-black);
+    font-size: 11px;
+    width: 180px;
+    height: 45px;
+}
+
+.cont-shop {
+  text-decoration: none;
+}
+
