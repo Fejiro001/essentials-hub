@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { LuArrowLeft, LuCheckCheck } from "react-icons/lu";
+import { LuArrowLeft, LuCheck } from "react-icons/lu";
 import '../css/Checkout.css';
 
 const items = [
@@ -16,19 +17,24 @@ const items = [
 ];
 
 function CheckoutParts () {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handlePaymentSubmit = (e) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+    };
     return (
         <main className="checkout">
             <section className="checkout-header">
                 <h2>CHECKOUT</h2>
             </section>
             <section className="checkout-body container">
-
                 <div className="theform">
                     <Link className="back-to-cart" to="/cart">
                         <LuArrowLeft/>
                         Back To Cart
                     </Link>
-                    <form>
+                    <form onSubmit={handlePaymentSubmit}>
                         <h2>Billing Details</h2>
                         <div className="names">
                            <div className="group">
@@ -116,7 +122,7 @@ function CheckoutParts () {
             {isSubmitted && (
                 <div className="popup-overlay">
                     <div className="popup-box">
-                        <LuCheckCheck2 className="success-icon"/>
+                        <LuCheck className="success-icon"/>
                         <h2>Thank You!</h2>
                         <p>Your order has been placed. A confirmation is on its way 
                             to your indox - we can't wait for you to unbox your essentials.
