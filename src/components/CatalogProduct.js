@@ -5,7 +5,7 @@ function CatalogProduct(props) {
   return (
     <>
       <div className="product-image">
-        <img src={product.image} alt={product.title} />
+        <img src={product.image} alt={product.title} loading="lazy" />
         <button className="favorite active">
           <LuHeart />
         </button>
