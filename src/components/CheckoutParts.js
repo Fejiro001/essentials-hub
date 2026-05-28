@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { LuArrowLeft } from "react-icons/lu";
+import '../css/checkout.css';
 
 const items = [
     {
