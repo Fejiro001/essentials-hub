@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { LuArrowLeft } from "react-icons/lu";
 import '../css/checkout.css';
-import secondary-banner from '../media/secondary-banner.png';
 
 const items = [
     {
@@ -19,7 +18,7 @@ const items = [
 function CheckoutParts () {
     return (
         <main className="checkout">
-            <section className="checkout-header" style={{ backgroundImage: `url(${secondary-banner})` }}>
+            <section className="checkout-header">
                 <h2>CHECKOUT</h2>
             </section>
             <section className="checkout-body">
@@ -32,50 +31,50 @@ function CheckoutParts () {
                         <h2>Billing details</h2>
                         <div className="names">
                            <div className="group">
-                                <label>First Name</label>
+                                <label>FIRST NAME</label>
                                 <input type="text" placeholder="First Name"/>
                            </div>
                             <div className="group">
-                                <label>Last Name</label>
+                                <label>LAST NAME</label>
                                 <input type="text" placeholder="Last Name"/>
                             </div>
                         </div>
                         <div className="group">
-                            <label>Email</label>
+                            <label>EMAIL</label>
                             <input type="text" placeholder="Email"/>
                         </div>
                          <div className="group">
-                            <label>Phone</label>
+                            <label>PHONE</label>
                             <input type="text" placeholder="Phone"/>
                         </div>
                         <h2>Shipping Information</h2>
                          <div className="group">
-                            <label>Address</label>
+                            <label>ADDRESS</label>
                             <input type="text" placeholder="Address"/>
                         </div>
                         <div className="group">
-                            <label>City</label>
+                            <label>CITY</label>
                             <input type="text" placeholder="City"/>
                         </div>
                         <div className="group">
-                            <label>Postal Code</label>
+                            <label>POSTAL CODE</label>
                             <input type="text" placeholder="Postal Code"/>
                         </div>
                          <div className="group">
-                            <label>Country</label>
+                            <label>COUNTRY</label>
                             <input type="text" placeholder="Country"/>
                         </div>
                         <h2>Payment details</h2>
                          <div className="group">
-                            <label>Cardholder</label>
+                            <label>CARDHOLDER NAME</label>
                             <input type="text" placeholder="Cardholder Name"/>
                         </div>
                         <div className="group">
-                            <label>Card Number</label>
+                            <label>CARD NUMBER</label>
                             <input type="text" placeholder="Card Number"/>
                         </div>
                          <div className="group">
-                            <label>MM / YY</label>
+                            <label>EXPIRY</label>
                             <input type="text" placeholder="MM / YY"/>
                         </div>
                          <div className="group">
