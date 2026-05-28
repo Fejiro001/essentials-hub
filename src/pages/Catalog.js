@@ -77,7 +77,7 @@ function Catalog() {
           <p>Explore our curated collection of essentials</p>
         </div>
       </section>
-      <section className="catalog-products">
+      <section className="catalog">
         <div className="container">
           <div className="catalog-filter">
             <div>
@@ -100,9 +100,9 @@ function Catalog() {
             </ul>
           </div>
           {/* PRODUCTS */}
-          <ul>
+          <ul className="catalog-products">
             {dummyData.map((product) => (
-              <li key={product.id}>
+              <li className="product" key={product.id}>
                 <CatalogProduct product={product} />
               </li>
             ))}
