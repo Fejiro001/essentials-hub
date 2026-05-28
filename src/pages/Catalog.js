@@ -1,10 +1,14 @@
 import "../css/Catalog.css";
+import CatalogProduct from "../components/CatalogProduct";
+
 const CATEGORIES = [
   { key: "women's clothing", label: "Women's Clothing" },
   { key: "men's clothing", label: "Men's Clothing" },
   { key: "jewelry", label: "Jewelry" },
   { key: "electronics", label: "Electronics" }
 ];
+
+const fakestoreURL = "https://fakestoreapi.com/products";
 
 function Catalog() {
   return (
@@ -35,7 +39,9 @@ function Catalog() {
             </ul>
           </div>
           {/* PRODUCTS */}
-          <ul></ul>
+          <ul>
+            <CatalogProduct />
+          </ul>
         </div>
       </section>
     </main>
