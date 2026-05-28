@@ -5,12 +5,13 @@ import { toast } from "sonner";
 import { LuSearch } from "react-icons/lu";
 import CatalogProduct from "../components/CatalogProduct";
 import CatalogProductSkeleton from "../components/CatalogProductSkeleton";
+import { a } from "framer-motion/client";
 
 const CATEGORIES = [
   { key: "all", label: "All" },
   { key: "women's clothing", label: "Women's Clothing" },
   { key: "men's clothing", label: "Men's Clothing" },
-  { key: "jewelry", label: "Jewelry" },
+  { key: "jewelery", label: "Jewelry" },
   { key: "electronics", label: "Electronics" }
 ];
 
@@ -20,16 +21,6 @@ function Catalog() {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
-
-  const filteredProducts = products?.filter((product) => {
-    switch (product.category) {
-      case "women's clothing":
-        break;
-
-      default:
-        break;
-    }
-  });
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -45,6 +36,11 @@ function Catalog() {
 
     fetchProducts();
   }, []);
+
+  const filteredProducts =
+    filter === "all"
+      ? products
+      : products.filter((product) => product.category === filter);
 
   return (
     <main>
@@ -71,7 +67,9 @@ function Catalog() {
             <ul className="filters">
               {CATEGORIES.map((cat) => (
                 <li key={cat.key}>
-                  <button className={`${filter === cat.key ? "active" : ""}`}>
+                  <button
+                    className={`${filter === cat.key ? "active" : ""}`}
+                    onClick={() => setFilter(cat.key)}>
                     {cat.label}
                   </button>
                 </li>
@@ -83,7 +81,7 @@ function Catalog() {
               ? Array.from({ length: 20 }).map((_, index) => (
                   <CatalogProductSkeleton key={index} />
                 ))
-              : products.map((product) => (
+              : filteredProducts.map((product) => (
                   <li className="product" key={product.id}>
                     <CatalogProduct product={product} />
                   </li>
