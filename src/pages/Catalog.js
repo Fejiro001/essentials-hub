@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import { LuSearch } from "react-icons/lu";
 import CatalogProduct from "../components/CatalogProduct";
 import CatalogProductSkeleton from "../components/CatalogProductSkeleton";
-import { a } from "framer-motion/client";
 
 const CATEGORIES = [
   { key: "all", label: "All" },
@@ -15,12 +14,20 @@ const CATEGORIES = [
   { key: "electronics", label: "Electronics" }
 ];
 
+const SORT_OPTIONS = [
+  { key: "default", label: "Default" },
+  { key: "price-asc", label: "Price: Low to High" },
+  { key: "price-desc", label: "Price: High to Low" },
+  { key: "rating", label: "Highest Rated" }
+];
+
 const fakestoreURL = "https://fakestoreapi.com/products";
 
 function Catalog() {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
+  const [sortBy, setSortBy] = useState("default");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -42,6 +49,19 @@ function Catalog() {
       ? products
       : products.filter((product) => product.category === filter);
 
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortBy) {
+      case "price-asc":
+        return a.price - b.price;
+      case "price-desc":
+        return b.price - a.price;
+      case "rating":
+        return b.rating.rate - a.rating.rate;
+      default:
+        return 0;
+    }
+  });
+
   return (
     <main>
       <section className="catalog-banner">
@@ -58,10 +78,14 @@ function Catalog() {
                 <LuSearch />
                 <input type="text" placeholder="Search products..." />
               </form>
-              <select className="sort">
-                <option value="default">Default</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
+              <select
+                className="sort"
+                onChange={(e) => setSortBy(e.target.value)}>
+                {SORT_OPTIONS.map((sort) => (
+                  <option key={sort.key} value={sort.key}>
+                    {sort.label}
+                  </option>
+                ))}
               </select>
             </div>
             <ul className="filters">
@@ -81,7 +105,7 @@ function Catalog() {
               ? Array.from({ length: 20 }).map((_, index) => (
                   <CatalogProductSkeleton key={index} />
                 ))
-              : filteredProducts.map((product) => (
+              : sortedProducts.map((product) => (
                   <li className="product" key={product.id}>
                     <CatalogProduct product={product} />
                   </li>
