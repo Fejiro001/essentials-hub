@@ -167,11 +167,26 @@ header {
 }
 
 .cart-btn {
+  position: relative;
   padding: 1rem;
   font-size: var(--fs-md);
   background-color: transparent;
   color: var(--color-black);
   border-radius: 50%;
+}
+
+.cart-count {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--fs-xs);
+  line-height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  text-align: center;
 }
 
 .cart-btn:hover {

@@ -4,6 +4,7 @@ import { LuShoppingBag, LuMenu, LuX } from "react-icons/lu";
 import logo from "../media/logo.svg";
 import UserProfileModal from "./UserProfileModal";
 import { useAuthStore } from "../stores/authStore";
+import { useCartStore } from "../stores/cartStore";
 
 function Header(props) {
   const { setIsLoginModalOpen } = props;
@@ -12,6 +13,9 @@ function Header(props) {
 
   const user = useAuthStore((state) => state.user);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const cartCount = useCartStore((state) =>
+    state.cart.reduce((total, item) => item.quantity + total, 0)
+  );
 
   return (
     <>
@@ -48,6 +52,7 @@ function Header(props) {
           </nav>
           <div className="user-actions">
             <Link to="/cart" className="cart-btn" title="View Cart">
+              {cartCount > 0 && <div className="cart-count">{cartCount}</div>}
               <LuShoppingBag />
             </Link>
             {isAuthenticated ? (
