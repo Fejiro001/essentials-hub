@@ -1,10 +1,9 @@
 import "../css/Catalog.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { LuSearch } from "react-icons/lu";
 import CatalogProduct from "../components/CatalogProduct";
-import { useEffect, useState } from "react";
-import { useInstantLayoutTransition } from "framer-motion";
-import axios from "axios";
-import { toast } from "sonner";
 import CatalogProductSkeleton from "../components/CatalogProductSkeleton";
 
 const CATEGORIES = [

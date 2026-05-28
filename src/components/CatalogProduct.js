@@ -1,7 +1,16 @@
 import { LuStar, LuShoppingBag, LuHeart } from "react-icons/lu";
+import { useCartStore } from "../stores/cartStore";
+import { toast } from "sonner";
 
 function CatalogProduct(props) {
   const { product } = props;
+  const addItem = useCartStore((state) => state.addItem);
+
+  const addItemToCart = (product) => {
+    addItem(product);
+    toast.success("Item added to cart");
+  };
+
   return (
     <>
       <div className="product-image">
@@ -27,7 +36,9 @@ function CatalogProduct(props) {
             <input className="quantity" type="text" value={1} readOnly />
             <input className="increment" type="button" value="+" />
           </div>
-          <button className="add-cart-btn">
+          <button
+            onClick={() => addItemToCart(product)}
+            className="add-cart-btn">
             <LuShoppingBag />
             <span>Add</span>
           </button>
