@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LuArrowLeft } from "react-icons/lu";
+import { LuArrowLeft, LuCheckCheck } from "react-icons/lu";
 import '../css/Checkout.css';
 
 const items = [
@@ -110,9 +110,23 @@ function CheckoutParts () {
                         <h3>Grand Total</h3>
                         <h3>$212.72</h3>
                     </div>
-                    <button>PAY $212.72</button>
+                    <button type="button" onClick={handlePaymentSubmit}>PAY $212.72</button>
                 </aside>
             </section>
+            {isSubmitted && (
+                <div className="popup-overlay">
+                    <div className="popup-box">
+                        <LuCheckCheck2 className="success-icon"/>
+                        <h2>Thank You!</h2>
+                        <p>Your order has been placed. A confirmation is on its way 
+                            to your indox - we can't wait for you to unbox your essentials.
+                        </p>
+                        <Link to="/" className="continue-btn">
+                            Continue Shopping
+                        </Link>
+                    </div>
+                </div>
+            )}
         </main>
     );
 }
