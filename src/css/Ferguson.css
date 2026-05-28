@@ -359,3 +359,35 @@ a {
 .author-rev {
     margin-top: 10px;
 }
+
+@media (max-width: 1023px) {
+    .hero{
+        height: 100svh;
+        width: 100%;
+    }
+
+    .left-btn{
+        bottom: 100px;
+        left: 50px;
+    }
+
+    .right-btn{
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* Cart page */
+
+.cart-banner {
+  background: url(../media/secondary-banner.png) no-repeat center/cover
+    rgb(255, 255, 255, 0.5);
+  background-blend-mode: overlay;
+  padding-block: 6rem;
+}
+
+.cart-banner h2 {
+  font-size: var(--fs-5xl);
+  font-weight: 900;
+  text-transform: uppercase;
+}

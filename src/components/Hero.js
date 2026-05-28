@@ -55,7 +55,6 @@ function Hero() {
 
  
   return (
-    <div className="main">
       <section className="hero">
         {slides.map((slide, index) => (
           <img
@@ -92,7 +91,6 @@ function Hero() {
         </div>
         <div className="overlay"></div>        
       </section>
-    </div>
   );
 }
 
