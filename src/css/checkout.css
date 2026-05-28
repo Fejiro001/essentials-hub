@@ -37,3 +37,44 @@
   font-size: var(--fs-sm);
   font-weight: 600;
 }
+
+/* FORM */
+.theform form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.theform form h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+
+  font-size: var(--fs-xl);
+}
+
+.theform form input {
+  padding: 1rem;
+  border: 1px solid #d9d9d9;
+  font-size: var(--fs-base);
+  transition: var(--transition);
+}
+
+.theform form input:focus {
+  outline: none;
+  border-color: var(--color-black);
+}
+
+/* ORDER SUMMARY */
+aside {
+  height: fit-content;
+
+  padding: 2rem;
+
+  border: 1px solid #d9d9d9;
+  background-color: #fafafa;
+}
+
+aside h2 {
+  margin-bottom: 2rem;
+  font-size: var(--fs-xl);
+}
