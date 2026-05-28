@@ -25,3 +25,15 @@
   grid-template-columns: 2fr 1fr;
   gap: 3rem;
 }
+
+/* BACK BUTTON */
+.theform a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-bottom: 2rem;
+  color: var(--color-black);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
