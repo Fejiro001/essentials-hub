@@ -1,0 +1,18 @@
+.catalog-banner {
+  background: url(../media/secondary-banner.png) no-repeat center/cover
+    rgb(255, 255, 255, 0.5);
+  background-blend-mode: overlay;
+  padding-block: 6rem;
+}
+
+.catalog-banner h2 {
+  font-size: var(--fs-5xl);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.catalog-banner p {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-text);
+}
