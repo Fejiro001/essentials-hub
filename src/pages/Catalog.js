@@ -19,6 +19,17 @@ const fakestoreURL = "https://fakestoreapi.com/products";
 function Catalog() {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("all");
+
+  const filteredProducts = products?.filter((product) => {
+    switch (product.category) {
+      case "women's clothing":
+        break;
+
+      default:
+        break;
+    }
+  });
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -54,13 +65,15 @@ function Catalog() {
               <select className="sort">
                 <option value="default">Default</option>
                 <option value="price-asc">Price: Low to High</option>
-                <option value="pricedesc">Price: High to Low</option>
+                <option value="price-desc">Price: High to Low</option>
               </select>
             </div>
             <ul className="filters">
               {CATEGORIES.map((cat) => (
                 <li key={cat.key}>
-                  <button>{cat.label}</button>
+                  <button className={`${filter === cat.key ? "active" : ""}`}>
+                    {cat.label}
+                  </button>
                 </li>
               ))}
             </ul>
