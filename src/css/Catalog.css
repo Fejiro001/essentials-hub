@@ -70,6 +70,8 @@
 
 .catalog-filter .filters {
   margin-block: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .catalog-filter .filters button {
@@ -212,8 +214,8 @@
   background: transparent;
   padding-inline: 1rem;
   transition: var(--transition);
-  
-  svg{
+
+  svg {
     width: 100%;
     min-width: 1.5rem;
     height: 100%;
@@ -302,5 +304,20 @@
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .catalog-filter div {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .catalog-banner h2 {
+    font-size: var(--fs-3xl);
   }
 }
