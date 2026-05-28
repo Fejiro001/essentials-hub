@@ -3,6 +3,7 @@ import menHero from '../media/men.png';
 import womenHero from '../media/women.png';
 import jewelryHero from '../media/jewelry.png';
 import electronicsHero from '../media/electronics.png';
+import { NavLink } from "react-router-dom";
 
 function Hero() {
     const slides = [
@@ -79,8 +80,7 @@ function Hero() {
 
           <div className="hero-btn">
             <div className="left-btn">
-              <button className="shop">SHOP COLLECTION</button>
-              <button className="view">VIEW ALL</button>
+              <NavLink to='/Catalog'><button className="shop">SHOP COLLECTION</button></NavLink> 
             </div>
             <div className="right-btn">
               <button className="prev" onClick={prevSlide}>❮</button>

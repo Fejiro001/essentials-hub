@@ -1,5 +1,73 @@
 @charset "utf-8";
 
+
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray: #f8f9fa;
+  --color-text: #212529;
+  --color-muted: #6c757d;
+  --color-gray: #a6a6a6;
+
+  /* Font Families */
+  --heading-font: "Playfair Display", serif;
+  --body-font: "Inter", sans-serif;
+
+  /* Font Sizes */
+  --fs-6xl: 72px;
+  --fs-5xl: 60px;
+  --fs-4xl: 48px;
+  --fs-3xl: 40px;
+  --fs-2xl: 32px;
+  --fs-xl: 28px;
+  --fs-lg: 24px;
+  --fs-md: 20px;
+  --fs-base: 16px;
+  --fs-sm: 14px;
+
+  /* Layout */
+  --max-width: 1240px;
+  --container-padding: 20px;
+  --section-padding: 100px 0;
+
+  /* UI */
+  --transition: all 0.3s ease-in-out;
+}
+
+.container {
+  max-width: min(100% - 30px, var(--max-width));
+  margin-inline: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+}
+
+p,
+a,
+li,
+button,
+span,
+input,
+textarea,
+label,
+select {
+  font-family: var(--body-font);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
 /* Cart page */
 
 /* Secondary Banner */
@@ -171,3 +239,4 @@
     color: var(--color-black);
     text-decoration: underline;
 }
+

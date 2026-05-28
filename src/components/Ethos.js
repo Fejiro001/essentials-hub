@@ -3,7 +3,7 @@ import about from '../media/about.jpg';
 function Ethos () {
     return(
         <section className='ethos-section'>
-            <div className="ethos-div">
+            <div className="ethos-div container">
                 <img src={about} className='about-img' alt='about-image'></img>
                 <div className='ethos-txt'>
                     <p>CHAPTER 03 - OUR ETHOS</p>
