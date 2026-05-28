@@ -11,6 +11,7 @@ import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import CartFAB from "./components/CartFAB";
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -38,6 +39,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      <CartFAB />
     </>
   );
 }

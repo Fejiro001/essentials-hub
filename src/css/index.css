@@ -467,6 +467,13 @@ footer {
   gap: 2rem;
 }
 
+/* CART FAB */
+.cart-fab {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
 /* Media Queries */
 @media (max-width: 767px) {
   .logo h1 {
