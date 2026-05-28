@@ -1,50 +1,17 @@
 import "../css/Catalog.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
-import { LuSearch } from "react-icons/lu";
+import { useState } from "react";
 import CatalogProduct from "../components/CatalogProduct";
 import CatalogProductSkeleton from "../components/CatalogProductSkeleton";
-
-const CATEGORIES = [
-  { key: "all", label: "All" },
-  { key: "women's clothing", label: "Women's Clothing" },
-  { key: "men's clothing", label: "Men's Clothing" },
-  { key: "jewelery", label: "Jewelry" },
-  { key: "electronics", label: "Electronics" }
-];
-
-const SORT_OPTIONS = [
-  { key: "default", label: "Default" },
-  { key: "price-asc", label: "Price: Low to High" },
-  { key: "price-desc", label: "Price: High to Low" },
-  { key: "rating", label: "Highest Rated" }
-];
-
-const fakestoreURL = "https://fakestoreapi.com/products";
+import { useDebounce } from "../hooks/useDebounce";
+import { useProducts } from "../hooks/useProducts";
+import CatalogFilters from "../components/CatalogFilters";
 
 function Catalog() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [sortBy, setSortBy] = useState("default");
   const [search, setSearch] = useState("");
-  const [debouncedSearch, setDebouncedSearch] = useState("");
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(fakestoreURL);
-        setProducts(response.data);
-      } catch (error) {
-        toast.error(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  const { products, loading } = useProducts();
+  const debouncedSearch = useDebounce(search);
 
   const filteredProducts =
     filter === "all"
@@ -64,14 +31,6 @@ function Catalog() {
     }
   });
 
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearch(search);
-    }, 300);
-
-    return () => clearTimeout(handler);
-  }, [search]);
-
   const searchedProducts = sortedProducts.filter((product) =>
     product.title.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
@@ -86,39 +45,14 @@ function Catalog() {
       </section>
       <section className="catalog">
         <div className="container">
-          <div className="catalog-filter">
-            <div>
-              <form className="searchbar">
-                <LuSearch />
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </form>
-              <select
-                className="sort"
-                onChange={(e) => setSortBy(e.target.value)}>
-                {SORT_OPTIONS.map((sort) => (
-                  <option key={sort.key} value={sort.key}>
-                    {sort.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <ul className="filters">
-              {CATEGORIES.map((cat) => (
-                <li key={cat.key}>
-                  <button
-                    className={`${filter === cat.key ? "active" : ""}`}
-                    onClick={() => setFilter(cat.key)}>
-                    {cat.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <CatalogFilters
+            search={search}
+            setSearch={setSearch}
+            filter={filter}
+            setFilter={setFilter}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+          />
           <ul className="catalog-products">
             {loading
               ? Array.from({ length: 20 }).map((_, index) => (
