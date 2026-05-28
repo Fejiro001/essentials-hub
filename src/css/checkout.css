@@ -1,4 +1,3 @@
-
 .checkout{background-color: var(--color-white);}
 
 /* HERO */
@@ -21,11 +20,12 @@
 
 /* MAIN SECTION */
 .checkout section:last-child {
-    max-width: 1240px;
+    max-width: var(--max-width);
     margin: 5rem auto;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.6fr 1fr;
+    /* gap: 3rem; */
+    padding-inline: 1rem;
 } 
 
 /* BACK BUTTON */
@@ -42,9 +42,10 @@
 
 /* FORM */
 .theform form {
+    counter-reset: section-counter; 
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
 }
 
 .theform form h2 {
@@ -52,6 +53,7 @@
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     font-size: var(--fs-xl);
+    gap: 0.75rem;
 }
 
 .theform form h2::before {
@@ -64,7 +66,7 @@
 .group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
     width: 100%;
 }
 
@@ -72,7 +74,8 @@
     font-size: 0.91rem; 
     font-weight: 400;  
     letter-spacing: 0.05em; 
-    color: #666;
+    color: var(--color-muted);
+    font-family: var(--body-font)
 }
 
 .theform form input {
@@ -82,12 +85,14 @@
     border-radius: 4px;
     font-size: var(--fs-base);
     background-color: var(--color-white);
+    color: var(--color-text);
+    font-family: var(--body-font);
     transition: border-color 0.2s ease;
 }
 
 .theform form input:focus {
     outline: none;
-    border-color: #000;
+    border-color: var(--color-black);
 }
 
 .names, 
@@ -103,22 +108,26 @@
     text-transform: uppercase;
     font-size: 0.89rem; 
     letter-spacing: 0.1em;
-    color: #888;
+    color: var(--color-muted);
     text-decoration: none;
     margin-bottom: 2rem;
+    font-family: var(--body-font);
+    font-weight: 600;
 }
 
 /* ORDER SUMMARY */
 aside {
     height: fit-content;
     padding: 2rem;
-    border: 1px solid #d9d9d9;
-    background-color: #fafafa;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--color-gray);
+    background-color: var(--color-white);
 }
 
 aside h2 {
     margin-bottom: 2rem;
     font-size: var(--fs-xl);
+    font-family: var(--heading-font);
 }
 
 /* ITEMS */
@@ -127,11 +136,12 @@ aside > div {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
+    font-family: var(--body-font);
 }
 
 /* TOTAL */
 .total {
-    border-top: 1px solid #d9d9d9;
+    border-top: 1px solid var(--color-gray);
     padding-top: 1.5rem;
     margin-top: 1.5rem;
 }
