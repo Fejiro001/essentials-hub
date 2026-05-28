@@ -29,8 +29,10 @@ function CheckoutParts () {
                     </Link>
                     <form>
                         <h2>Billing details</h2>
-                        <input type="text" placeholder="First Name"/>
-                        <input type="text" placeholder="Last Name"/>
+                        <div className="names">
+                            <input type="text" placeholder="First Name"/>
+                            <input type="text" placeholder="Last Name"/>
+                        </div>
                         <input type="text" placeholder="Email"/>
                         <input type="text" placeholder="Phone"/>
                         <h2>Shipping Information</h2>
