@@ -96,9 +96,9 @@ function Catalog() {
           </div>
           {/* PRODUCTS */}
           <ul>
-            {dummyData.map((data) => (
-              <li key={data.id}>
-                <CatalogProduct data={data} />
+            {dummyData.map((product) => (
+              <li key={product.id}>
+                <CatalogProduct product={product} />
               </li>
             ))}
           </ul>
