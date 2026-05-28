@@ -1,5 +1,7 @@
+import CheckoutParts from "../components/CheckoutParts";
+
 function Checkout() {
-  return <></>;
+  return <CheckoutParts/>;
 }
 
 export default Checkout;
