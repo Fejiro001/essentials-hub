@@ -7,7 +7,7 @@
   --color-gray: #f8f9fa;
   --color-text: #212529;
   --color-muted: #74777b;
-  --color-gray: #a6a6a6;
+  --color-gray: #b9b9b9;
 
   /* Font Families */
   --heading-font: "Playfair Display", serif;
@@ -24,6 +24,7 @@
   --fs-md: 20px;
   --fs-base: 16px;
   --fs-sm: 14px;
+  --fs-xs: 12px;
 
   /* Layout */
   --max-width: 1240px;
@@ -92,9 +93,13 @@ header {
   padding: 1.5rem 0;
 }
 
+/* .user-actions{
+  align-items: flex-start;
+} */
+
 .logo,
 .user-actions {
-  gap: 0.8rem;
+  gap: 1.2rem;
 }
 
 .logo h1 {
@@ -166,11 +171,27 @@ header {
 }
 
 .cart-btn {
-  padding: 1rem;
+  position: relative;
+  padding: 0.8rem;
   font-size: var(--fs-md);
   background-color: transparent;
   color: var(--color-black);
   border-radius: 50%;
+  border: 1px solid var(--color-black);
+}
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -7px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--fs-xs);
+  line-height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  text-align: center;
 }
 
 .cart-btn:hover {
@@ -179,8 +200,8 @@ header {
 }
 
 .user-btn {
-  height: 30px;
-  width: 30px;
+  height: 3.5rem;
+  width: 3.5rem;
   font-size: var(--fs-base);
   font-weight: 700;
   color: var(--color-white);
@@ -195,11 +216,17 @@ header {
 
 .menu-btn {
   display: none;
-  padding: 1rem;
+  padding: 0.8rem;
   font-size: var(--fs-md);
   background-color: transparent;
   color: var(--color-black);
   border-radius: 50%;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.menu-btn:hover {
+  border-color: var(--color-black);
 }
 
 /* LOGIN */
@@ -384,7 +411,7 @@ footer {
 .location-info li,
 .footer-bottom,
 .policies {
-  color: var(--color-muted);
+  color: var(--color-gray);
   font-size: var(--fs-sm);
 }
 
@@ -396,7 +423,7 @@ footer {
 }
 
 .socials-list li {
-  border: 1px solid var(--color-muted);
+  border: 1px solid var(--color-gray);
   border-radius: 50%;
   padding: 0.8rem;
   font-size: var(--fs-sm);
@@ -417,7 +444,7 @@ footer {
 
 .footer-list li {
   font-size: var(--fs-sm);
-  color: var(--color-muted);
+  color: var(--color-gray);
   margin-bottom: 0.5rem;
   cursor: pointer;
   transition: var(--transition);
@@ -429,7 +456,7 @@ footer {
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--color-muted);
+  border-top: 1px solid var(--color-gray);
   padding-block: 3rem;
 }
 
@@ -441,11 +468,6 @@ footer {
 }
 
 /* Media Queries */
-/* Tablet */
-@media (max-width: 1023px) {
-}
-
-/* Mobile */
 @media (max-width: 767px) {
   .logo h1 {
     display: none;
