@@ -20,11 +20,11 @@
 
 /* MAIN SECTION */
 .checkout section:last-child {
-    max-width: var(--max-width);
+   max-width: var(--max-width);
     margin: 5rem auto;
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    /* gap: 3rem; */
+    grid-template-columns: 2fr 1fr; 
+    gap: 25rem; 
     padding-inline: 1rem;
 } 
 
@@ -49,7 +49,6 @@
 }
 
 .theform form h2 {
-    counter-reset: section-counter;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     font-size: var(--fs-xl);
@@ -118,7 +117,6 @@
 /* ORDER SUMMARY */
 aside {
     height: fit-content;
-    padding: 2rem;
     padding: 2.5rem 2rem;
     border: 1px solid var(--color-gray);
     background-color: var(--color-white);
@@ -146,6 +144,11 @@ aside > div {
     margin-top: 1.5rem;
 }
 
+.total h3 {
+    font-family: var(--heading-font);
+    font-size: var(--fs-lg);
+}
+
 /* BUTTON */
 aside button {
     width: 100%;
@@ -155,6 +158,11 @@ aside button {
     color: var(--color-white);
     font-size: var(--fs-base);
     font-weight: 600;
+    font-family: var(--body-font);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
     transition: var(--transition);
 }
 
