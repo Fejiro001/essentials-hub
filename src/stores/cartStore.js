@@ -5,10 +5,43 @@ export const useCartStore = create(
   persist(
     (set, get) => ({
       cart: [],
-      addItem: () => ({}),
-      removeItem: () => ({}),
-      updateQuantityt: () => ({}),
-      clearCart: () => ({})
+
+      addItem: (product) => {
+        const cart = get().cart;
+        const productExists = cart.find((item) => item.id === product.id);
+
+        if (productExists) {
+          const updatedCart = cart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          );
+
+          set({ cart: updatedCart });
+        } else {
+          set({ cart: [...cart, { ...product, quantity: 1 }] });
+        }
+      },
+
+      removeItem: (id) => {
+        const updatedCart = get().cart.filter((item) => item.id !== id);
+        set({ cart: updatedCart });
+      },
+
+      updateQuantityt: (id, quantity) => {
+        if (quantity <= 0) {
+          get().removeItem(id);
+          return;
+        }
+
+        const updatedCart = get().cart.map((item) =>
+          item.id === id ? { ...item, quantity } : item
+        );
+
+        set({ cart: updatedCart });
+      },
+
+      clearCart: () => set({ cart: [] })
     }),
     { name: "cart" }
   )
