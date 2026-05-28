@@ -1,4 +1,4 @@
-function Blackthing () {
+function Marquee () {
     return (
         <div className="line">
             <p>NEW ARRIVALS / ELECTRONICS / MEN'S CLOTHING / WOMEN'S CLOTHING / JEWELRY / ESSENTIALS / NEW ARRIVALS / ELECTRONICS / MEN'S CLOTHING</p>
@@ -6,4 +6,4 @@ function Blackthing () {
     )
 }
 
-export default Blackthing;
+export default Marquee;
