@@ -74,10 +74,15 @@
 
 .catalog-filter .filters button {
   background-color: transparent;
-  border: 1px solid var(--color-black);
+  border: 1.5px solid var(--color-gray);
   padding: 0.8rem 2rem;
   text-transform: uppercase;
   font-size: var(--fs-sm);
+  transition: var(--transition);
+}
+
+.catalog-filter .filters button:hover {
+  border-color: var(--color-black);
 }
 
 .catalog-filter .filters button.active {
@@ -94,15 +99,14 @@
 
 .catalog-products .product {
   height: 100%;
-  display: grid;
   border: 1px solid var(--color-gray);
   transition: var(--transition);
 }
 
 /* Handle with framer motion */
 .catalog-products .product:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+
   .product-image img {
     scale: 1.05;
   }
@@ -125,5 +129,98 @@
 }
 
 .product-info {
+  display: grid;
+  gap: 0.6rem;
   padding: 1.6rem;
+}
+
+.product-category {
+  text-transform: uppercase;
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+}
+
+.product-title {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-extra,
+.product-stats,
+.product-quantity,
+.product-actions,
+.add-cart-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: var(--fs-base);
+}
+
+.product-stats {
+  gap: 0.2rem;
+  font-size: var(--fs-sm);
+}
+
+.product-stats svg {
+  fill: var(--color-black);
+}
+
+.product-count {
+  color: var(--color-muted);
+  margin-left: 0.3rem;
+}
+
+.product-actions {
+  gap: 0.8rem;
+}
+
+.product-quantity {
+  border: 1px solid var(--color-gray);
+  height: 100%;
+}
+
+.product-quantity input[type="button"] {
+  height: 100%;
+  background: transparent;
+  font-size: var(--fs-md);
+  line-height: var(--fs-md);
+  padding-inline: 1.2rem;
+  transition: var(--transition);
+}
+
+.product-quantity input[type="button"]:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.product-quantity input[type="text"] {
+  width: 5rem;
+  text-align: center;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.add-cart-btn {
+  gap: 0.8rem;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: 1px solid var(--color-black);
+  text-transform: uppercase;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.add-cart-btn:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

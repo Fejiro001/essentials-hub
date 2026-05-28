@@ -1,4 +1,4 @@
-import { LuStar, LuShoppingBag } from "react-icons/lu";
+import { LuStar, LuShoppingBag, LuMinus, LuPlus } from "react-icons/lu";
 
 function CatalogProduct(props) {
   const { product } = props;
@@ -21,11 +21,11 @@ function CatalogProduct(props) {
         </div>
         <div className="product-actions">
           <div className="product-quantity">
-            <input type="button" value="-" />
-            <input type="text" value={1} readOnly />
-            <input type="button" value="+" />
+            <input className="decrement" type="button" value="-" />
+            <input className="quantity" type="text" value={1} readOnly />
+            <input className="increment" type="button" value="+" />
           </div>
-          <button>
+          <button className="add-cart-btn">
             <LuShoppingBag />
             <span>Add</span>
           </button>
