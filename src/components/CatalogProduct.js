@@ -47,13 +47,6 @@ function CatalogProduct(props) {
               disabled={quantityCount === 1}>
               <LuMinus />
             </button>
-            {/* <input
-              className="decrement"
-              type="button"
-              value="-"
-              onClick={() => setQuantityCount(quantityCount - 1)}
-              disabled={quantityCount === 1}
-            /> */}
             <input
               className="quantity"
               type="text"
@@ -66,12 +59,6 @@ function CatalogProduct(props) {
               onClick={() => setQuantityCount(quantityCount + 1)}>
               <LuPlus />
             </button>
-            {/* <input
-              className="increment"
-              type="button"
-              value="+"
-              onClick={() => setQuantityCount(quantityCount + 1)}
-            /> */}
           </div>
           <button
             onClick={() => addItemToCart(product)}
