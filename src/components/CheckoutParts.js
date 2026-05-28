@@ -73,14 +73,16 @@ function CheckoutParts () {
                             <label>CARD NUMBER</label>
                             <input type="text" placeholder="Card Number"/>
                         </div>
-                         <div className="group">
-                            <label>EXPIRY</label>
-                            <input type="text" placeholder="MM / YY"/>
-                        </div>
-                         <div className="group">
-                            <label>CVC</label>
-                            <input type="text" placeholder="CVC"/>
-                        </div>
+                         <div className="group-row">
+                            <div className="group">
+                                <label>EXPIRY</label>
+                                <input type="text" placeholder="MM / YY"/>
+                            </div>
+                            <div className="group">
+                                <label>CVC</label>
+                                <input type="text" placeholder="CVC"/>
+                            </div>
+                         </div>
                     </form>
                 </div>
                 <aside>
