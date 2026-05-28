@@ -17,6 +17,7 @@
   font-size: var(--fs-sm);
   margin-bottom: 3rem;
   transition: var(--transition);
+  width: fit-content;
 }
 
 .back-to-catalog:hover {
@@ -69,6 +70,7 @@ article .img-container img {
 
 h2.title {
   font-size: var(--fs-3xl);
+  line-height: var(--fs-4xl);
   font-weight: 500;
   text-transform: capitalize;
 }
@@ -146,6 +148,80 @@ h2.title {
 
 .related-item {
   position: relative;
+}
+
+.related .related-products,
+.explore .collection-imgs {
+  margin-top: 3rem;
+}
+
+.skeleton {
+  background: #e5e5e5;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.skeleton-title {
+  width: 200px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.skeleton-text {
+  width: 120px;
+  height: 20px;
+}
+
+.skeleton-image {
+  width: 100%;
+  min-height: 500px;
+}
+
+.skeleton-category {
+  width: 120px;
+  height: 20px;
+  margin-bottom: 1rem;
+}
+
+.skeleton-product-title {
+  width: 80%;
+  height: 40px;
+  margin-bottom: 1.5rem;
+}
+
+.skeleton-price {
+  width: 100px;
+  height: 30px;
+  margin-bottom: 2rem;
+}
+
+.skeleton-description {
+  width: 100%;
+  height: 16px;
+  margin-bottom: 1rem;
+}
+
+.skeleton-description.short {
+  width: 60%;
+}
+
+.skeleton-button {
+  width: 140px;
+  height: 50px;
 }
 
 /* Tablet */

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
-import './css/Home.css'
-import './css/Cart.css'
 import Header from "./components/Header";
 import LoginModal from "./components/LoginModal";
 import Home from "./pages/Home";
