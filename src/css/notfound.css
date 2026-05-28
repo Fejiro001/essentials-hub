@@ -1,2 +1,37 @@
 @import "./reset.css";
 
+.not {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.page h2 {
+  font-size: 120px;
+  margin-bottom: 1rem;
+}
+
+.page p {
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+}
+
+.page a {
+  display: inline-block;
+
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+
+  background-color: var(--color-black);
+  color: var(--color-white);
+
+  transition: var(--transition);
+}
+
+.page a:hover {
+  background-color: #2b2b2b;
+}

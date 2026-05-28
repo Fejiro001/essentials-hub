@@ -1,8 +1,7 @@
 import CheckoutParts from "../components/CheckoutParts";
 
 function Checkout() {
-  return 
-  <CheckoutParts/>;
+  return <CheckoutParts/>;
 }
 
 export default Checkout;
