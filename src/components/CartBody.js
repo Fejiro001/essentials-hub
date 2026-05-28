@@ -1,5 +1,5 @@
 import { FiShoppingBag } from "react-icons/fi";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function CartBody () {
     return (
