@@ -1,4 +1,4 @@
-import { LuStar, LuShoppingBag, LuMinus, LuPlus } from "react-icons/lu";
+import { LuStar, LuShoppingBag, LuHeart } from "react-icons/lu";
 
 function CatalogProduct(props) {
   const { product } = props;
@@ -6,7 +6,9 @@ function CatalogProduct(props) {
     <>
       <div className="product-image">
         <img src={product.image} alt={product.title} />
-        {/* favorite icon */}
+        <button className="favorite active">
+          <LuHeart />
+        </button>
       </div>
       <div className="product-info">
         <p className="product-category">{product.category}</p>

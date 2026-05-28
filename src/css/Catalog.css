@@ -98,10 +98,32 @@
 }
 
 .catalog-products .product {
+  position: relative;
   height: 100%;
   border: 1px solid var(--color-gray);
+}
+
+.catalog-products .product,
+.catalog-products .product .favorite {
   transition: var(--transition);
 }
+
+.catalog-products .product .favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 1.2rem;
+  border-radius: 50%;
+}
+
+.catalog-products .product .favorite:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* .catalog-products .product .favorite.active {
+  fill: var(--color-black);
+} */
 
 /* Handle with framer motion */
 .catalog-products .product:hover {
