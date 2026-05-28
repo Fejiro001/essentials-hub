@@ -28,6 +28,8 @@ function Catalog() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [sortBy, setSortBy] = useState("default");
+  const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -62,6 +64,18 @@ function Catalog() {
     }
   });
 
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 300);
+
+    return () => clearTimeout(handler);
+  }, [search]);
+
+  const searchedProducts = sortedProducts.filter((product) =>
+    product.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+  );
+
   return (
     <main>
       <section className="catalog-banner">
@@ -76,7 +90,12 @@ function Catalog() {
             <div>
               <form className="searchbar">
                 <LuSearch />
-                <input type="text" placeholder="Search products..." />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
               </form>
               <select
                 className="sort"
@@ -105,7 +124,7 @@ function Catalog() {
               ? Array.from({ length: 20 }).map((_, index) => (
                   <CatalogProductSkeleton key={index} />
                 ))
-              : sortedProducts.map((product) => (
+              : searchedProducts.map((product) => (
                   <li className="product" key={product.id}>
                     <CatalogProduct product={product} />
                   </li>
