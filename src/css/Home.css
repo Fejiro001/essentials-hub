@@ -40,64 +40,39 @@
   font-size: var(--fs-sm);
 }
 
-.hero-btn {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100svw;
-}
-
-.left-btn {
-  display: flex;
-  gap: 15px;
-  font-size: var(--fs-sm);
-  font-weight: bold;
-}
-
-.right-btn {
+.slide-btn {
   position: absolute;
-  right: 150px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
   display: flex;
-  gap: 10px;
-  justify-content: space-between;
-  width: 80px;
   align-items: center;
-  color: white;
+  justify-content: flex-end;
+  gap: 10px;
+  color: var(--color-white);
 }
 
-.shop,
-.view {
-  height: 50px;
+.slide-btn .count{
+  width: 5rem;
 }
 
 .shop {
-  background-color: rgb(255, 255, 255);
-  color: black;
-  padding: 10px 15px;
-}
-
-.view {
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 10px 20px;
+  display: inline-block;
+  background-color: var(--color-white);
+  font-weight: 600;
+  color: var(--color-black);
+  padding: 1.4rem 3.2rem;
+  margin-top: 2rem;
+  font-size: var(--fs-sm);
 }
 
 .prev,
 .next {
-  font-size: 25px;
+  font-size: var(--fs-md);
   background-color: transparent;
   border: 0.7px solid var(--color-white);
-  color: white;
-}
-
-.prev {
-  padding: 0 7px;
-}
-
-.next {
-  padding: 0 7px;
+  color: var(--color-white);
+  padding: 0.8rem;
 }
 
 .overlay {
