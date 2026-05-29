@@ -17,13 +17,13 @@ import PageWrapper from "../components/PageWrapper";
 
 export const COLLECTIONS = [
   {
-    key: "men's",
+    key: "men's clothing",
     title: "Men's",
     image: menCollect,
     alt: "Mens Section"
   },
   {
-    key: "women's",
+    key: "women's clothing",
     title: "Women's",
     image: womenCollect,
     alt: "Womens Section"
@@ -66,7 +66,7 @@ function CatalogDetails() {
   }, [productDetail, products]);
 
   const collections = COLLECTIONS.filter(
-    (c) => !productDetail?.category.toLowerCase().includes(c.key.toLowerCase())
+    (c) => !productDetail?.category.toLowerCase().startsWith(c.key.toLowerCase())
   );
 
   if (loading || !productDetail) {
@@ -87,7 +87,7 @@ function CatalogDetails() {
             productDetail={productDetail}
             quantity={quantity}
             setQuantity={setQuantity}
-            onAddToCart={addItemToCart}
+            addItemToCart={addItemToCart}
           />
           <RelatedProducts relatedProducts={relatedProducts} />
           <ExploreCollections collections={collections} />

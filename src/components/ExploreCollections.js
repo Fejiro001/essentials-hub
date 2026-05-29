@@ -7,7 +7,10 @@ function ExploreCollections({ collections }) {
       <h2 className="title">Explore other collections</h2>
       <ul className="collection-imgs">
         {collections.map((collection) => (
-          <Link to="/catalog" key={collection.key} className="box-img">
+          <Link
+            to={`/catalog?category=${encodeURIComponent(collection.key)}`}
+            key={collection.key}
+            className="box-img">
             <li>
               <div className="collection-sing">
                 <img src={collection.image} alt={collection.alt} />
