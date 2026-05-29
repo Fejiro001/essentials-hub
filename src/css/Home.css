@@ -132,12 +132,9 @@
   font-weight: bold;
 }
 
-/* End of black random line */
-
 /* Collections Section */
 .collection {
   padding: var(--section-padding);
-  padding-left: 20px;
 }
 
 .collection-imgs {
