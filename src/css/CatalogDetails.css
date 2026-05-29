@@ -149,10 +149,6 @@ h2.title {
   gap: 3rem;
 }
 
-.related-item {
-  position: relative;
-}
-
 .related .related-products,
 .explore .collection-imgs {
   margin-top: 3rem;
