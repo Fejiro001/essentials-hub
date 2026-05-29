@@ -128,7 +128,7 @@ function CheckoutParts () {
                             to your inbox - we can't wait for you to unbox your essentials.
                         </p>
                         <Link to="/" className="continue-btn">
-                            Continue Shopping
+                            Back To Home
                         </Link>
                     </div>
                 </div>
