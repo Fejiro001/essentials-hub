@@ -51,8 +51,8 @@ function Checkout() {
           </div>
         </section>
       ) : (
-        <>
-          <section className="checkout-body container checkout-layout">
+        <div className="container">
+          <section className="checkout-body checkout-layout">
             <CheckoutForm
               register={register}
               handleSubmit={handleSubmit}
@@ -68,7 +68,7 @@ function Checkout() {
             />
           </section>
           <SuccessPopup isSubmitted={isSubmitted} />
-        </>
+        </div>
       )}
     </main>
   );
