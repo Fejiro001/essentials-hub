@@ -1,11 +1,9 @@
 import "../css/CatalogDetails.css";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
-
 import { useCartStore } from "../stores/cartStore";
 import { useProducts } from "../hooks/useProducts";
-import CatalogProduct from "../components/CatalogProduct";
 import menCollect from "../media/men.png";
 import womenCollect from "../media/women.png";
 import jewelryCollect from "../media/jewelry.png";
@@ -13,6 +11,8 @@ import electronicsCollect from "../media/electronics.png";
 import CatalogDetailsSkeleton from "../components/CatalogDetailsSkeleton";
 import { useProductDetails } from "../hooks/useProductDetails";
 import ProductDetailsInfo from "../components/ProductDetailsInfo";
+import RelatedProducts from "../components/RelatedProducts";
+import ExploreCollections from "../components/ExploreCollections";
 
 export const COLLECTIONS = [
   {
@@ -87,34 +87,8 @@ function CatalogDetails() {
           setQuantity={setQuantity}
           onAddToCart={addItemToCart}
         />
-        <section className="related">
-          <p className="subtitle">Pairs well with</p>
-          <h2 className="title">You might also like</h2>
-          <ul className="related-products">
-            {relatedProducts.map((related) => (
-              <CatalogProduct key={related.id} product={related} />
-            ))}
-          </ul>
-        </section>
-        <section className="explore">
-          <p className="subtitle">Keep browsing</p>
-          <h2 className="title">Explore other collections</h2>
-          <ul className="collection-imgs">
-            {collections.map((collection) => (
-              <Link to="/catalog" key={collection.key} className="box-img">
-                <li>
-                  <div className="collection-sing">
-                    <img src={collection.image} alt={collection.alt} />
-                  </div>
-                  <div className="box-img-text">
-                    <h3>{collection.title}</h3>
-                    <p>SHOP COLLECTION</p>
-                  </div>
-                </li>
-              </Link>
-            ))}
-          </ul>
-        </section>
+        <RelatedProducts relatedProducts={relatedProducts} />
+        <ExploreCollections collections={collections} />
       </div>
     </main>
   );
