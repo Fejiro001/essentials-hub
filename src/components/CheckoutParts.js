@@ -125,7 +125,7 @@ function CheckoutParts () {
                         <LuCheck className="success-icon"/>
                         <h2>Thank You!</h2>
                         <p>Your order has been placed. A confirmation is on its way 
-                            to your indox - we can't wait for you to unbox your essentials.
+                            to your inbox - we can't wait for you to unbox your essentials.
                         </p>
                         <Link to="/" className="continue-btn">
                             Continue Shopping
