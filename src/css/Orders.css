@@ -128,15 +128,16 @@
 .ordered-category {
   text-transform: uppercase;
   color: var(--color-muted);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
 }
 
 .ordered-details h5 {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-md);
 }
 
 .ordered-details p:last-child {
   color: var(--color-muted);
+  font-size: var(--fs-sm);
 }
 
 .view-order-btn {

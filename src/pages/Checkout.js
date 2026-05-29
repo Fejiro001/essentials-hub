@@ -32,7 +32,7 @@ function Checkout() {
   const handlePaymentSubmit = () => {
     const order = {
       id: crypto.randomUUID(),
-      items: cart,
+      items: structuredClone(cart),
       subtotal,
       vat,
       total,
@@ -42,7 +42,7 @@ function Checkout() {
     addOrder(order);
 
     setIsSubmitted(true);
-    // clearCart();
+    clearCart();
   };
 
   return (

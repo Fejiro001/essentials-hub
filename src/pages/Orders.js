@@ -3,6 +3,14 @@ import { LuPackage } from "react-icons/lu";
 import { useOrderStore } from "../stores/orderStore";
 import "../css/Orders.css";
 
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  });
+}
+
 function Orders() {
   const orders = useOrderStore((state) => state.orders);
 
@@ -31,9 +39,7 @@ function Orders() {
             <div className="orders-header">
               <div>
                 <p className="orders-subtitle">Purchase History</p>
-                <h3>Your Orders</h3>
               </div>
-
               <span>{orders.length} Orders</span>
             </div>
 
@@ -48,7 +54,7 @@ function Orders() {
 
                     <div>
                       <p className="order-label">Date</p>
-                      <h4>{order.date}</h4>
+                      <h4>{formatDate(order.createdAt)}</h4>
                     </div>
 
                     <div>
@@ -66,12 +72,9 @@ function Orders() {
                     {order.items.map((item) => (
                       <div className="ordered-item" key={item.id}>
                         <img src={item.image} alt={item.title} />
-
                         <div className="ordered-details">
                           <p className="ordered-category">{item.category}</p>
-
                           <h5>{item.title}</h5>
-
                           <p>
                             Qty: {item.quantity} × ${item.price}
                           </p>
