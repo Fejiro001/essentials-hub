@@ -30,7 +30,7 @@
 .hero-txt {
   position: absolute;
   top: 60%;
-  left: 3%;
+  left: inherit;
   z-index: 2;
   color: var(--color-off-white);
 }
@@ -42,8 +42,8 @@
 
 .slide-btn {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 50px;
+  right: 50px;
   z-index: 2;
   display: flex;
   align-items: center;
