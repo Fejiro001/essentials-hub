@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import { LuBox, LuHeart, LuLogOut } from "react-icons/lu";
 import { useAuthStore } from "../stores/authStore";
 
-function UserProfileModal(props) {
+function UserProfileModal({ setProfileModal }) {
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
+  const firstName = user?.name?.split(" ")?.[0];
 
   return (
     <div className="user-profile-modal">
       <div className="user-name">
-        <h2>Hi, {user?.name?.split(" ")[0]}</h2>
+        <h2>Hi, {firstName}</h2>
       </div>
       <ul className="profile-options">
         <li>
@@ -17,10 +18,12 @@ function UserProfileModal(props) {
           <span>Orders</span>
         </li>
         <li>
-          <Link to="/Favorites"  className="profile-link" 
-          onClick={() => props.setProfileModal(false)}>
-          <LuHeart />
-          <span>Favorites</span>
+          <Link
+            to="/favorites"
+            className="profile-link"
+            onClick={() => setProfileModal(false)}>
+            <LuHeart />
+            <span>Favorites</span>
           </Link>
         </li>
       </ul>
@@ -29,7 +32,7 @@ function UserProfileModal(props) {
           className="signout-btn"
           onClick={() => {
             logout();
-            props.setProfileModal(false);
+            setProfileModal(false);
           }}>
           <LuLogOut />
           <span>Sign Out</span>
