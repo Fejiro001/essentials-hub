@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { LuBox, LuHeart, LuLogOut } from "react-icons/lu";
 import { useAuthStore } from "../stores/authStore";
 
@@ -16,8 +17,11 @@ function UserProfileModal(props) {
           <span>Orders</span>
         </li>
         <li>
+          <Link to="/Favorites"  className="profile-link" 
+          onClick={() => props.setProfileModal(false)}>
           <LuHeart />
           <span>Favorites</span>
+          </Link>
         </li>
       </ul>
       <div>

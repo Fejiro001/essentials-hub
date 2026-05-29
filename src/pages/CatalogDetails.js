@@ -21,7 +21,7 @@ import menCollect from "../media/men.png";
 import womenCollect from "../media/women.png";
 import jewelryCollect from "../media/jewelry.png";
 import electronicsCollect from "../media/electronics.png";
-import CatalogDetailsSkeleton from "../components/CatalogDetailsSkeleton ";
+import CatalogDetailsSkeleton from "../components/CatalogDetailsSkeleton";
 
 const fakestoreURL = "https://fakestoreapi.com/products";
 

@@ -9,6 +9,7 @@ import CatalogDetails from "./pages/CatalogDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
+import Favorites from "./pages/Favorites";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import CartFAB from "./components/CartFAB";
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/catalog/:productId" element={<CatalogDetails />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/favorites" element={<Favorites />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
