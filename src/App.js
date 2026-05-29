@@ -23,7 +23,7 @@ function App() {
   const cart = useCartStore((state) => state.cart);
 
   return (
-    <AnimatePresence mode="sync">
+    <>
       <ScrollToTop />
       <Toaster position="top-right" richColors closeButton duration={2000} />
       {isLoginModalOpen && (
@@ -35,19 +35,25 @@ function App() {
       )}
       <Header setIsLoginModalOpen={setIsLoginModalOpen} />
       {/* Main */}
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/catalog" element={<Catalog />} />
-        <Route exact path="/catalog/:productId" element={<CatalogDetails />} />
-        <Route exact path="/cart" element={<Cart />} />
-        <Route exact path="/checkout" element={<Checkout />} />
-        <Route exact path="/favorites" element={<Favorites />} />
-        <Route exact path="/orders" element={<Orders />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AnimatePresence mode="sync">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/catalog" element={<Catalog />} />
+          <Route
+            exact
+            path="/catalog/:productId"
+            element={<CatalogDetails />}
+          />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/checkout" element={<Checkout />} />
+          <Route exact path="/favorites" element={<Favorites />} />
+          <Route exact path="/orders" element={<Orders />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
       {cart.length > 0 && <CartFAB />}
-    </AnimatePresence>
+    </>
   );
 }
 
