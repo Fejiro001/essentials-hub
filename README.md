@@ -2,7 +2,7 @@ README
 
 # Essentials Hub
 
-![My Tasks Preview](./src/media/Essentials-hub-home.png)
+![My Tasks Preview](./src/media/website.png)
 
 ## Description
 
