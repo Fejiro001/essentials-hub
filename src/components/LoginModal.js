@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { LuX } from "react-icons/lu";
 import { useAuthStore } from "../stores/authStore";
+import { useOutsideClick } from "../hooks/useOutsideClick";
+import { useRef } from "react";
 
 function LoginModal(props) {
   const { setIsLoginModalOpen, authMode, setAuthMode } = props;
@@ -9,6 +11,7 @@ function LoginModal(props) {
 
   const login = useAuthStore((state) => state.login);
   const signup = useAuthStore((state) => state.signup);
+  const loginModalRef = useRef();
 
   const {
     register,
@@ -16,6 +19,10 @@ function LoginModal(props) {
     reset,
     formState: { errors }
   } = useForm();
+
+  useOutsideClick(loginModalRef, () => {
+    setIsLoginModalOpen(false);
+  });
 
   const handleLogin = (data) => {
     const result = login(data.email, data.password);
@@ -44,7 +51,7 @@ function LoginModal(props) {
 
   return (
     <div className="modal-overlay">
-      <div className="login-modal">
+      <div ref={loginModalRef} className="login-modal">
         <div className="modal-header">
           <h2>{isSignUp ? "Join Essentials Hub" : "Welcome Back"}</h2>
           <button
