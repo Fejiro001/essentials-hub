@@ -1,0 +1,7 @@
+.favorites-pages, 
+.favorites-page-empty {
+    max-width: min(100% - 30px, var(--max-width));
+    margin-inline: auto;
+    padding-block: var(--container-padding);
+    min-height: 60dvh;
+}
