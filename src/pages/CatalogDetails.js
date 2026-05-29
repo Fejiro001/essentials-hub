@@ -13,6 +13,7 @@ import { useProductDetails } from "../hooks/useProductDetails";
 import ProductDetailsInfo from "../components/ProductDetailsInfo";
 import RelatedProducts from "../components/RelatedProducts";
 import ExploreCollections from "../components/ExploreCollections";
+import PageWrapper from "../components/PageWrapper";
 
 export const COLLECTIONS = [
   {
@@ -73,24 +74,26 @@ function CatalogDetails() {
   }
 
   return (
-    <main>
-      <section className="secondary-banner">
-        <div className="container banner-container">
-          <h2>Catalog details</h2>
-          <p>{productDetail.category}</p>
+    <PageWrapper>
+      <main>
+        <section className="secondary-banner">
+          <div className="container banner-container">
+            <h2>Catalog details</h2>
+            <p>{productDetail.category}</p>
+          </div>
+        </section>
+        <div className="container detail-container">
+          <ProductDetailsInfo
+            productDetail={productDetail}
+            quantity={quantity}
+            setQuantity={setQuantity}
+            onAddToCart={addItemToCart}
+          />
+          <RelatedProducts relatedProducts={relatedProducts} />
+          <ExploreCollections collections={collections} />
         </div>
-      </section>
-      <div className="container detail-container">
-        <ProductDetailsInfo
-          productDetail={productDetail}
-          quantity={quantity}
-          setQuantity={setQuantity}
-          onAddToCart={addItemToCart}
-        />
-        <RelatedProducts relatedProducts={relatedProducts} />
-        <ExploreCollections collections={collections} />
-      </div>
-    </main>
+      </main>
+    </PageWrapper>
   );
 }
 

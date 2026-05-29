@@ -63,22 +63,24 @@ function Hero() {
           className={`hero-image ${index === currentImg ? "active" : ""}`}
         />
       ))}
-      <div className="hero-txt">
-        <p className="fine-print">CAMPAIGN 0{currentImg + 1} - WINTER 2026</p>
-        <h2 className="hero-head">{slides[currentImg].title}</h2>
-        <p>{slides[currentImg].description}</p>
-        <Link className="shop" to="/catalog">
-          SHOP COLLECTION
-        </Link>
-      </div>
-      <div className="slide-btn">
-        <button className="prev" onClick={prevSlide}>
-          <LuChevronLeft />
-        </button>
-        <h3 className="count">0{currentImg + 1}/04</h3>
-        <button className="next" onClick={nextSlide}>
-          <LuChevronRight />
-        </button>
+      <div className="container">
+        <div className="hero-txt">
+          <p className="fine-print">CAMPAIGN 0{currentImg + 1} - WINTER 2026</p>
+          <h2 className="hero-head">{slides[currentImg].title}</h2>
+          <p>{slides[currentImg].description}</p>
+          <Link className="shop" to="/catalog">
+            SHOP COLLECTION
+          </Link>
+        </div>
+        <div className="slide-btn">
+          <button className="prev" onClick={prevSlide}>
+            <LuChevronLeft />
+          </button>
+          <h3 className="count">0{currentImg + 1}/04</h3>
+          <button className="next" onClick={nextSlide}>
+            <LuChevronRight />
+          </button>
+        </div>
       </div>
       <div className="overlay"></div>
     </section>

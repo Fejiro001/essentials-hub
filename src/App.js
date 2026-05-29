@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { Toaster } from "sonner";
+import { useCartStore } from "./stores/cartStore";
 import Header from "./components/Header";
 import LoginModal from "./components/LoginModal";
 import Home from "./pages/Home";
@@ -8,13 +10,12 @@ import Catalog from "./pages/Catalog";
 import CatalogDetails from "./pages/CatalogDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import NotFound from "./pages/NotFound";
 import Favorites from "./pages/Favorites";
+import Orders from "./pages/Orders";
+import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import CartFAB from "./components/CartFAB";
-import { useCartStore } from "./stores/cartStore";
-import Orders from "./pages/Orders";
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -22,7 +23,7 @@ function App() {
   const cart = useCartStore((state) => state.cart);
 
   return (
-    <>
+    <AnimatePresence mode="wait">
       <ScrollToTop />
       <Toaster position="top-right" richColors closeButton duration={2000} />
       {isLoginModalOpen && (
@@ -46,7 +47,7 @@ function App() {
       </Routes>
       <Footer />
       {cart.length > 0 && <CartFAB />}
-    </>
+    </AnimatePresence>
   );
 }
 
