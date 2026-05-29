@@ -14,8 +14,10 @@ function UserProfileModal({ setProfileModal }) {
       </div>
       <ul className="profile-options">
         <li>
-          <LuBox />
-          <span>Orders</span>
+          <Link className="profile-link">
+            <LuBox />
+            <span>Orders</span>
+          </Link>
         </li>
         <li>
           <Link
