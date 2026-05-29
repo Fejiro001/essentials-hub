@@ -7,24 +7,28 @@ import { NavLink } from "react-router-dom";
 
 const slides = [
   {
+    index: 0,
     image: womenHero,
     title: "WOMEN'S",
     description: "Timeless elegance, redefined",
     alt: "Women's Dress"
   },
   {
+    index: 1,
     image: menHero,
     title: "MEN'S",
     description: "Modern essentials for him",
     alt: "Men's Suit"
   },
   {
+    index: 2,
     image: jewelryHero,
     title: "JEWELRY",
     description: "Delicate details that speak volumes",
     alt: "Jewelry Image"
   },
   {
+    index: 3,
     image: electronicsHero,
     title: "ELECTRONICS",
     description: "Innovation meets design",
@@ -54,12 +58,12 @@ function Hero() {
 
   return (
     <section className="hero">
-      {slides.map((slide, index) => (
+      {slides.map((slide) => (
         <img
-          key={index}
+          key={slide.index}
           src={slide.image}
           alt={slide.alt}
-          className={`hero-image ${index === currentImg ? "active" : ""}`}
+          className={`hero-image ${slide.index === currentImg ? "active" : ""}`}
         />
       ))}
       <div key={currentImg} className="hero-txt">

@@ -8,14 +8,14 @@ import HomeReviews from "../components/HomeReviews";
 
 function Home() {
   return(
-    <>
+    <main>
       <Hero />
       <Marquee />
       <Collections />
       <Reviewblack />
       <Ethos />
       <HomeReviews />
-    </>
+    </main>
   )
 }
 
