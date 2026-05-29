@@ -158,7 +158,8 @@ aside > div {
 
 .checkout-products .item-image {
   position: relative;
-  width: 8rem;
+  max-width: 8rem;
+  width: 100%;
   height: 8rem;
   display: flex;
   justify-content: center;
