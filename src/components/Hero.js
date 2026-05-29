@@ -3,32 +3,28 @@ import menHero from "../media/men.png";
 import womenHero from "../media/women.png";
 import jewelryHero from "../media/jewelry.png";
 import electronicsHero from "../media/electronics.png";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
-    index: 0,
     image: womenHero,
     title: "WOMEN'S",
     description: "Timeless elegance, redefined",
     alt: "Women's Dress"
   },
   {
-    index: 1,
     image: menHero,
     title: "MEN'S",
     description: "Modern essentials for him",
     alt: "Men's Suit"
   },
   {
-    index: 2,
     image: jewelryHero,
     title: "JEWELRY",
     description: "Delicate details that speak volumes",
     alt: "Jewelry Image"
   },
   {
-    index: 3,
     image: electronicsHero,
     title: "ELECTRONICS",
     description: "Innovation meets design",
@@ -58,15 +54,15 @@ function Hero() {
 
   return (
     <section className="hero">
-      {slides.map((slide) => (
+      {slides.map((slide, index) => (
         <img
-          key={slide.index}
+          key={index}
           src={slide.image}
           alt={slide.alt}
-          className={`hero-image ${slide.index === currentImg ? "active" : ""}`}
+          className={`hero-image ${index === currentImg ? "active" : ""}`}
         />
       ))}
-      <div key={currentImg} className="hero-txt">
+      <div className="hero-txt">
         <p className="fine-print">CAMPAIGN 0{currentImg + 1} - WINTER 2026</p>
 
         <h2 className="hero-head">{slides[currentImg].title}</h2>
@@ -75,9 +71,9 @@ function Hero() {
 
         <div className="hero-btn">
           <div className="left-btn">
-            <NavLink to="/Catalog">
-              <button className="shop">SHOP COLLECTION</button>
-            </NavLink>
+            <Link className="shop" to="/Catalog">
+              SHOP COLLECTION
+            </Link>
           </div>
           <div className="right-btn">
             <button className="prev" onClick={prevSlide}>
