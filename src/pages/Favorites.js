@@ -1,13 +1,14 @@
 import React from "react";
 import {Link } from "react-router-dom";
-import { LuHeart, LuAArrowLeft } from "react-icons/lu";
+import { LuHeart, LuArrowLeft } from "react-icons/lu";
+import "../css/Favorites.css";
 
 function Favorites () {
     const favoritesList = [];
 
-    if (favoritesList.Length === 0) {
+    if (favoritesList.length === 0) {
         return (
-            <main className="favorites-page-empty conatiner">
+            <main className="favorites-page-empty container">
                 <div className="empty">
                     <LuHeart className="empty-icon"/>
                     <h2>Your Wishlist is Empty</h2>
