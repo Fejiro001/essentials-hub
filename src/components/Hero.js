@@ -42,7 +42,7 @@ function Hero() {
   }
 
   function prevSlide() {
-    setCurrentImg((a) => (a === 0 ? slides.length - 1 : a - 1));
+    setCurrentImg((next) => (next === 0 ? slides.length - 1 : next - 1));
   }
 
   useEffect(() => {
