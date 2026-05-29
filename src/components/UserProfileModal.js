@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import { LuBox, LuHeart, LuLogOut } from "react-icons/lu";
 import { useAuthStore } from "../stores/authStore";
+import { useRef } from "react";
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
 function UserProfileModal({ setProfileModal }) {
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
   const firstName = user?.name?.split(" ")?.[0];
+  const modalRef = useRef();
+
+  useOutsideClick(modalRef, () => {
+    setProfileModal(false);
+  });
 
   return (
-    <div className="user-profile-modal">
+    <div ref={modalRef} className="user-profile-modal">
       <div className="user-name">
         <h2>Hi, {firstName}</h2>
       </div>
