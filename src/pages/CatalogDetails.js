@@ -165,7 +165,7 @@ function CatalogDetails() {
                     </div>
                     <button
                       onClick={() => addItemToCart(productDetail)}
-                      className="add-cart-btn">
+                      className="primary-btn">
                       <LuShoppingBag />
                       <span>Add to cart</span>
                     </button>

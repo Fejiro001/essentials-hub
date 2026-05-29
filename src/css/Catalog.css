@@ -200,8 +200,7 @@
 .product-extra,
 .product-stats,
 .product-quantity,
-.product-actions,
-.add-cart-btn {
+.product-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -261,25 +260,6 @@
   text-align: center;
   font-size: var(--fs-sm);
   font-weight: 600;
-}
-
-.add-cart-btn {
-  gap: 0.8rem;
-  justify-content: center;
-  padding: 1rem 1.5rem;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  border: 1px solid var(--color-black);
-  text-transform: uppercase;
-  transition: var(--transition);
-  width: 100%;
-}
-
-.add-cart-btn:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
 }
 
 /* LOADING SKELETON */

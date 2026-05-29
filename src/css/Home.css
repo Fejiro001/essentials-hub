@@ -325,19 +325,6 @@
   margin-top: 1.6rem;
 }
 
-/* Main cart section */
-.main-cart button {
-  color: var(--color-white);
-  background-color: var(--color-black);
-  font-size: 11px;
-  width: 180px;
-  height: 45px;
-}
-
-.cont-shop {
-  text-decoration: none;
-}
-
 @media (max-width: 1023px) {
   .collection-imgs,
   .info,
