@@ -53,15 +53,22 @@ function Catalog() {
             sortBy={sortBy}
             setSortBy={setSortBy}
           />
-          <ul className="catalog-products">
-            {loading
-              ? Array.from({ length: 20 }).map((_, index) => (
-                  <CatalogProductSkeleton key={index} />
-                ))
-              : searchedProducts.map((product) => (
-                  <CatalogProduct key={product.id} product={product} />
-                ))}
-          </ul>
+          {!loading && searchedProducts.length === 0 ? (
+            <div className="empty-catalog">
+              <h3>No products found</h3>
+              <p>Try adjusting your filters or search terms.</p>
+            </div>
+          ) : (
+            <ul className="catalog-products">
+              {loading
+                ? Array.from({ length: 20 }).map((_, index) => (
+                    <CatalogProductSkeleton key={index} />
+                  ))
+                : searchedProducts.map((product) => (
+                    <CatalogProduct key={product.id} product={product} />
+                  ))}
+            </ul>
+          )}
         </div>
       </section>
     </main>

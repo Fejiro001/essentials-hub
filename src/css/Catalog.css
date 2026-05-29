@@ -243,6 +243,16 @@
   font-weight: 600;
 }
 
+/* EMPTY CATALOG */
+.empty-catalog {
+  width: 100%;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--color-muted);
+  display: grid;
+  gap: 0.5rem;
+}
+
 /* LOADING SKELETON */
 .skeleton-block,
 .skeleton-line,
