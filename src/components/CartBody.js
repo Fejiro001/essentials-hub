@@ -2,6 +2,8 @@ import { LuMinus, LuPlus, LuShoppingBag, LuTrash } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import { useCartStore } from "../stores/cartStore";
 
+const ESTIMATED_SHIPPING = 15;
+
 function CartBody() {
   const cart = useCartStore((state) => state.cart);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
@@ -77,11 +79,11 @@ function CartBody() {
             </div>
             <div className="check-row2">
               <p>Shipping:</p>
-              <p>Calculated at checkout</p>
+              <p>${ESTIMATED_SHIPPING.toFixed(2)}</p>
             </div>
             <div className="check-row1">
               <p className="bold">Estimated Total:</p>
-              <p>${total.toFixed(2)}</p>
+              <p>${(total + ESTIMATED_SHIPPING).toFixed(2)}</p>
             </div>
             <div className="check-cart-end">
               <NavLink to="/checkout">

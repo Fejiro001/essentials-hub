@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LuPackage, LuChevronRight } from "react-icons/lu";
+import { LuPackage } from "react-icons/lu";
 import { useOrderStore } from "../stores/orderStore";
 import "../css/Orders.css";
 
@@ -79,11 +79,6 @@ function Orders() {
                       </div>
                     ))}
                   </div>
-
-                  <button className="view-order-btn">
-                    View Details
-                    <LuChevronRight />
-                  </button>
                 </article>
               ))}
             </div>

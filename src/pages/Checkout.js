@@ -42,7 +42,7 @@ function Checkout() {
     addOrder(order);
 
     setIsSubmitted(true);
-    clearCart();
+    // clearCart();
   };
 
   return (
