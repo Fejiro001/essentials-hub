@@ -1,8 +1,8 @@
 import { FiShoppingBag } from "react-icons/fi";
+import { FaRegTrashAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useCartStore } from "../stores/cartStore";
-import { FaRegTrashAlt } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { LuMinus, LuPlus } from "react-icons/lu";
 
 function CartBody() {
   const cart = useCartStore((state) => state.cart);
@@ -10,14 +10,9 @@ function CartBody() {
   const clearCart = useCartStore((state) => state.clearCart);
   const removeItem = useCartStore((state) => state.removeItem);
 
-  const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    const getTotal = cart.reduce((sum, item) => {
-      return sum + item.price * item.quantity;
-    }, 0);
-    setTotal(getTotal);
-  }, [cart]);
+  const total = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
 
   return (
     <section className="middle-cart">
@@ -25,7 +20,7 @@ function CartBody() {
         <div className="empty-cart container">
           <FiShoppingBag className="bag-icon" />
           <p>Your cart is empty</p>
-          <NavLink to="/Catalog" className="cont-shop">
+          <NavLink to="/catalog" className="cont-shop">
             <button className="no-items">CONTINUE SHOPPING</button>
           </NavLink>
         </div>
@@ -33,53 +28,48 @@ function CartBody() {
         <div className="main-cart container">
           <div className="orders">
             <div className="top-order">
-              <p>{cart.length} items</p>
+              <p>{cart.length} ITEM(S)</p>
               <button className="all-out" onClick={() => clearCart()}>
                 <FaRegTrashAlt /> REMOVE ALL
               </button>
             </div>
-            {cart.map((cat) => {
-              return (
-                <div className="one-sec">
-                  <div className="left-cart">
-                    <img
-                      src={cat.image}
-                      className="cart-image"
-                      alt="pants"></img>
-                    <div className="order-dets">
-                      <p className="cart-categ">{cat.category.toUpperCase()}</p>
-                      <h5 className="cart-name">{cat.title}</h5>
-                      <p className="cat-price">${cat.price} each</p>
-                      <div className="button-area">
-                        <div className="cart-quantity">
-                          <button
-                            onClick={() =>
-                              updateQuantity(cat.id, cat.quantity - 1)
-                            }>
-                            -
-                          </button>
-                          <p>{cat.quantity}</p>
-                          <button
-                            onClick={() =>
-                              updateQuantity(cat.id, cat.quantity + 1)
-                            }>
-                            +
-                          </button>
-                        </div>
-                        <p
-                          onClick={() => removeItem(cat.id)}
-                          className="cart-remove">
-                          REMOVE
-                        </p>
+            {cart.map((cat) => (
+              <div className="one-sec" key={cat.id}>
+                <div className="left-cart">
+                  <img src={cat.image} className="cart-image" alt="pants"></img>
+                  <div className="order-dets">
+                    <p className="cart-categ">{cat.category.toUpperCase()}</p>
+                    <h5 className="cart-name">{cat.title}</h5>
+                    <p className="cat-price">${cat.price} each</p>
+                    <div className="button-area">
+                      <div className="cart-quantity">
+                        <button
+                          onClick={() =>
+                            updateQuantity(cat.id, cat.quantity - 1)
+                          }>
+                          <LuMinus />
+                        </button>
+                        <input type="text" value={cat.quantity} readOnly />
+                        <button
+                          onClick={() =>
+                            updateQuantity(cat.id, cat.quantity + 1)
+                          }>
+                          <LuPlus />
+                        </button>
                       </div>
+                      <button
+                        onClick={() => removeItem(cat.id)}
+                        className="cart-remove">
+                        REMOVE
+                      </button>
                     </div>
                   </div>
-                  <div className="right-cart">
-                    <h3>${(cat.price * cat.quantity).toFixed(2)}</h3>
-                  </div>
                 </div>
-              );
-            })}
+                <div className="right-cart">
+                  <h3>${(cat.price * cat.quantity).toFixed(2)}</h3>
+                </div>
+              </div>
+            ))}
           </div>
           <div className="cart-checkout">
             <h5 className="order-sum">Order Summary</h5>
@@ -93,13 +83,13 @@ function CartBody() {
             </div>
             <div className="check-row1">
               <p className="bold">Estimated Total:</p>
-              <p>${(total + 50).toFixed(2)}</p>
+              <p>${total.toFixed(2)}</p>
             </div>
             <div className="check-cart-end">
-              <NavLink to="/Checkout">
+              <NavLink to="/checkout">
                 <button className="primary-btn">PROCEED TO CHECKOUT</button>
               </NavLink>
-              <NavLink to="/Catalog" className="back-from">
+              <NavLink to="/catalog" className="back-from">
                 CONTINUE SHOPPING
               </NavLink>
             </div>

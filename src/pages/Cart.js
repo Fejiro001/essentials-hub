@@ -4,10 +4,10 @@ import CartBody from "../components/CartBody";
 
 function Cart() {
   return (
-    <div className="cart-cont">
+    <main className="cart-cont">
       <SecondaryCart />
       <CartBody />
-    </div>
+    </main>
   );
 }
 
