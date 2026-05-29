@@ -45,7 +45,7 @@ export const useFavoritesStore = create(
       clearFavorites: () => set({ favorites: [] })
     }),
     {
-      name: "favorites-storage"
+      name: "favorites"
     }
   )
 );
