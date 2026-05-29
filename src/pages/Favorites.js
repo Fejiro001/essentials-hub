@@ -1,5 +1,5 @@
 import React from "react";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LuHeart, LuArrowLeft } from "react-icons/lu";
 import "../css/Favorites.css";
 
