@@ -10,11 +10,18 @@ import {
   LuShield
 } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { useFavoritesStore } from "../stores/favoritesStore";
 
 function ProductDetailsInfo(props) {
   const { productDetail, quantity, setQuantity, addItemToCart } = props;
 
+  const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
+  const favorite = useFavoritesStore((state) =>
+    state.favorites.some((item) => item.id === productDetail?.id)
+  );
+
   if (!productDetail) return null;
+
   return (
     <section className="product-data">
       <Link className="back-to-catalog" to="/catalog">
@@ -71,7 +78,10 @@ function ProductDetailsInfo(props) {
               <LuShoppingBag />
               <span>Add to cart</span>
             </button>
-            <button className="favorite-btn">
+            <button
+              type="button"
+              className={`favorite-btn ${favorite ? "favorited" : ""}`}
+              onClick={() => toggleFavorite(productDetail)}>
               <LuHeart />
             </button>
           </div>

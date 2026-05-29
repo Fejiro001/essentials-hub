@@ -68,7 +68,7 @@
   border-color: var(--color-black);
 }
 
-.catalog-filter .filters button.favorited {
+.catalog-filter .filters button.active {
   background-color: var(--color-black);
   color: var(--color-white);
   border-color: var(--color-black);
