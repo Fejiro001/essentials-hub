@@ -23,7 +23,7 @@ function App() {
   const cart = useCartStore((state) => state.cart);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
       <ScrollToTop />
       <Toaster position="top-right" richColors closeButton duration={2000} />
       {isLoginModalOpen && (
