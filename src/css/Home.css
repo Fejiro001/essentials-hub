@@ -239,7 +239,7 @@
   font-size: var(--fs-sm);
 }
 
-/* Ethos section */
+/* ABOUT/ETHOS */
 .ethos-section {
   padding: var(--section-padding);
   background-color: rgb(249, 249, 249);
@@ -247,33 +247,40 @@
 
 .ethos-div {
   display: flex;
+  align-items: center;
+  gap: 2rem 6rem;
 }
 
 .about-img {
-  height: 450px;
-  width: auto;
-  margin-right: 60px;
+  flex: 1 1 50%;
+  width: 100%;
+  height: auto;
+}
+
+.about-img img {
+  object-fit: cover;
+  display: block;
 }
 
 .ethos-txt {
-  max-width: 650px;
+  flex: 1 1 50%;
 }
 
 .ethos-txt p {
   color: var(--color-muted);
 }
 
-.ethos-txt p,
+.ethos-txt p:not(:first-child),
 .ethos-txt h2 {
-  margin-bottom: 20px;
+  margin-bottom: 2.4rem;
 }
 
 .ethos-txt h2 {
-  font-size: var(--fs-5xl);
+  font-size: var(--fs-3xl);
+  line-height: var(--fs-4xl);
 }
 
 /* What they say section in home page */
-
 .what-ts {
   padding: var(--section-padding);
   padding-left: 100px;
@@ -339,8 +346,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .ethos-div {
-    display: grid;
-    justify-items: center;
+    flex-direction: column;
   }
   .ethos-p {
     font-size: var(--fs-md);
