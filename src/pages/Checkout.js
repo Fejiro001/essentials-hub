@@ -52,7 +52,7 @@ function Checkout() {
         </section>
       ) : (
         <>
-          <section className="checkout-body container">
+          <section className="checkout-body container checkout-layout">
             <CheckoutForm
               register={register}
               handleSubmit={handleSubmit}

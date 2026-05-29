@@ -1,5 +1,5 @@
 import "../css/CatalogDetails.css";
-import { Link, redirect, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
@@ -71,6 +71,13 @@ function CatalogDetails() {
 
       try {
         const response = await axios.get(`${fakestoreURL}/${productId}`);
+
+        if (!response.data) {
+          toast.error("Product not found");
+          navigate("/");
+          return;
+        }
+
         setProductDetail(response.data);
       } catch (error) {
         toast.error(error.message);
