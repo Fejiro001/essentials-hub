@@ -163,6 +163,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .box-img a {
@@ -275,52 +276,56 @@
   margin-bottom: 2.4rem;
 }
 
-.ethos-txt h2 {
+.ethos-txt h2,
+.wts-head h2 {
   font-size: var(--fs-3xl);
   line-height: var(--fs-4xl);
 }
 
-/* What they say section in home page */
+/* TESTIMONIALS */
 .what-ts {
   padding: var(--section-padding);
-  padding-left: 100px;
+}
+
+.wts-head {
+  margin-bottom: 4rem;
 }
 
 .wts-head p {
   color: var(--color-muted);
 }
 
-.wts-head h2 {
-  font-size: var(--fs-5xl);
-}
-
 .rev-examples {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.4rem;
 }
 
 .rev-box {
-  height: 230px;
-  width: 300px;
   border: 1px solid var(--color-gray);
-  margin: 10px;
-  padding: 30px;
+  padding: 3rem;
+  min-height: 23rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .rev-stars {
   display: flex;
-  margin-bottom: 20px;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
 }
 
 .rev-txt {
   color: var(--color-muted);
+  line-height: 1.7;
 }
 
 .author-rev {
-  margin-top: 10px;
+  margin-top: 1.6rem;
 }
 
 /* Main cart section */
-
 .main-cart button {
   color: var(--color-white);
   background-color: var(--color-black);
@@ -334,29 +339,22 @@
 }
 
 @media (max-width: 1023px) {
-  .collection-imgs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-  }
-  .box-img {
-    width: 98%;
-  }
-  .info {
+  .collection-imgs,
+  .info,
+  .rev-examples {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .ethos-div {
     flex-direction: column;
   }
+
   .ethos-p {
     font-size: var(--fs-md);
   }
+
   .about-img {
     margin: 0 0 30px 0;
-  }
-  .rev-examples {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -365,27 +363,25 @@
     font-size: var(--fs-5xl);
   }
   .info {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
     padding: 3rem 0 5rem;
   }
+
+  .info,
+  .collection-imgs,
+  .rev-examples {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
   .info-box h2 {
     font-size: var(--fs-5xl);
   }
+
   .collection-imgs {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 100%;
     justify-items: center;
-  }
-  .box-img {
-    width: 90%;
   }
 
   .header-collect {
     font-size: var(--fs-3xl);
-  }
-  .collection-sing {
-    height: 580px;
   }
 
   .ethos-p {
@@ -395,9 +391,8 @@
   .ethos-txt h2 {
     font-size: var(--fs-4xl);
   }
+
   .rev-examples {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
     width: 100%;
   }
 
