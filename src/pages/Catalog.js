@@ -1,14 +1,16 @@
 import "../css/Catalog.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CatalogProduct from "../components/CatalogProduct";
 import CatalogProductSkeleton from "../components/CatalogProductSkeleton";
 import { useDebounce } from "../hooks/useDebounce";
 import { useProducts } from "../hooks/useProducts";
 import CatalogFilters from "../components/CatalogFilters";
 import PageWrapper from "../components/PageWrapper";
+import { useSearchParams } from "react-router-dom";
 
 function Catalog() {
-  const [filter, setFilter] = useState("all");
+  const [searchParams] = useSearchParams();
+  const [filter, setFilter] = useState(searchParams.get("category") || "all");
   const [sortBy, setSortBy] = useState("default");
   const [search, setSearch] = useState("");
   const { products, loading } = useProducts();
@@ -35,6 +37,10 @@ function Catalog() {
   const searchedProducts = sortedProducts.filter((product) =>
     product.title.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
+
+  useEffect(() => {
+    setFilter(searchParams.get("category") || "all");
+  }, [searchParams]);
 
   return (
     <PageWrapper>

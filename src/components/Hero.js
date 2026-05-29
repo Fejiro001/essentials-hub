@@ -8,24 +8,28 @@ import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 const slides = [
   {
+    key: "women's clothing",
     image: womenHero,
     title: "WOMEN'S",
     description: "Timeless elegance, redefined",
     alt: "Women's Dress"
   },
   {
+    key: "men's clothing",
     image: menHero,
     title: "MEN'S",
     description: "Modern essentials for him",
     alt: "Men's Suit"
   },
   {
+    key: "jewelery",
     image: jewelryHero,
     title: "JEWELRY",
     description: "Delicate details that speak volumes",
     alt: "Jewelry Image"
   },
   {
+    key: "electronics",
     image: electronicsHero,
     title: "ELECTRONICS",
     description: "Innovation meets design",
@@ -53,11 +57,13 @@ function Hero() {
     return () => clearInterval(slider);
   }, []);
 
+  const currentSlide = slides[currentImg];
+
   return (
     <section className="hero">
       {slides.map((slide, index) => (
         <img
-          key={index}
+          key={slide.key}
           src={slide.image}
           alt={slide.alt}
           className={`hero-image ${index === currentImg ? "active" : ""}`}
@@ -66,9 +72,11 @@ function Hero() {
       <div className="container">
         <div className="hero-txt">
           <p className="fine-print">CAMPAIGN 0{currentImg + 1} - WINTER 2026</p>
-          <h2 className="hero-head">{slides[currentImg].title}</h2>
-          <p>{slides[currentImg].description}</p>
-          <Link className="shop" to="/catalog">
+          <h2 className="hero-head">{currentSlide.title}</h2>
+          <p>{currentSlide.description}</p>
+          <Link
+            className="shop"
+            to={`/catalog?category=${encodeURIComponent(currentSlide.key)}`}>
             SHOP COLLECTION
           </Link>
         </div>

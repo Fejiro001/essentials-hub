@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 
 export const COLLECTIONS = [
   {
-    key: "men's",
+    key: "men's clothing",
     title: "Men's",
     image: menCollect,
     alt: "Mens Section"
   },
   {
-    key: "women's",
+    key: "women's clothing",
     title: "Women's",
     image: womenCollect,
     alt: "Womens Section"
@@ -41,7 +41,7 @@ function Collections() {
         </div>
         <ul className="collection-imgs">
           {COLLECTIONS.map((collection) => (
-            <Link to="/catalog" key={collection.key} className="box-img">
+            <Link to={`/catalog?category=${encodeURIComponent(collection.key)}`} key={collection.key} className="box-img">
               <li>
                 <div className="collection-sing">
                   <img src={collection.image} alt={collection.alt} />
