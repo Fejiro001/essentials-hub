@@ -13,12 +13,10 @@ function Marquee() {
       <div className="marquee-track">
         {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map(
           (item, i) => (
-            <>
-              <span key={i} className="marquee-item">
-                {item}
-              </span>
+            <div key={i}>
+              <span className="marquee-item">{item}</span>
               <span>/</span>
-            </>
+            </div>
           )
         )}
       </div>

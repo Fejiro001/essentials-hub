@@ -1,4 +1,4 @@
-/* For the hero banner */
+/* HERO BANNER */
 .hero {
   position: relative;
   width: 100%;
@@ -88,9 +88,7 @@
   z-index: 1;
 }
 
-/* End of hero banner */
-
-/* Marquee */
+/* MARQUEE */
 .line {
   width: 100%;
   background-color: var(--color-black);
@@ -122,7 +120,7 @@
   }
 }
 
-/* Collections Section */
+/* COLLECTIONS */
 .collection {
   padding: var(--section-padding);
 }
@@ -212,16 +210,17 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* Random black review after collections in home */
-.info {
-  display: flex;
-  justify-content: space-between;
+/* REVIEW */
+.info-section {
   background-color: var(--color-black);
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3rem;
+  padding: 6rem 0 8rem;
   color: var(--color-white);
-  height: 200px;
-  align-items: center;
-  justify-content: center;
-  gap: 200px;
 }
 
 .info-box {
@@ -337,7 +336,7 @@
     width: 98%;
   }
   .info {
-    gap: 60px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .ethos-div {
     display: grid;
@@ -360,11 +359,8 @@
     font-size: var(--fs-5xl);
   }
   .info {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    height: fit-content;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    padding: 3rem 0 5rem;
   }
   .info-box h2 {
     font-size: var(--fs-5xl);

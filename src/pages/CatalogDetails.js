@@ -177,7 +177,7 @@ function CatalogDetails() {
                     <li>
                       <LuTruck />
                       <p>Free shipping</p>
-                      <p>On orders $75+</p>
+                      <p>On orders $100+</p>
                     </li>
                     <li>
                       <LuRotateCcw />

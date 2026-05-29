@@ -2,9 +2,9 @@ import "../css/Home.css";
 import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
 import Collections from "../components/Collections";
-import Reviewblack from "../components/Reviewsblack";
 import Ethos from "../components/Ethos";
 import HomeReviews from "../components/HomeReviews";
+import ReviewBlack from "../components/ReviewBlack";
 
 function Home() {
   return(
@@ -12,7 +12,7 @@ function Home() {
       <Hero />
       <Marquee />
       <Collections />
-      <Reviewblack />
+      <ReviewBlack />
       <Ethos />
       <HomeReviews />
     </main>
