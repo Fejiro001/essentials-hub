@@ -7,6 +7,7 @@ import OrderSummary from "../components/OrderSummary";
 import SuccessPopup from "../components/SuccessPopup";
 import { Link } from "react-router-dom";
 import { LuShoppingBag } from "react-icons/lu";
+import { useOrderStore } from "../stores/orderStore";
 
 function Checkout() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -19,6 +20,7 @@ function Checkout() {
     handleSubmit,
     formState: { errors }
   } = useForm();
+  const addOrder = useOrderStore((state) => state.addOrder);
 
   const subtotal = useMemo(() => {
     return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -28,6 +30,17 @@ function Checkout() {
   const total = useMemo(() => subtotal + vat, [subtotal, vat]);
 
   const handlePaymentSubmit = () => {
+    const order = {
+      id: crypto.randomUUID(),
+      items: cart,
+      subtotal,
+      vat,
+      total,
+      createdAt: new Date().toISOString()
+    };
+
+    addOrder(order);
+
     setIsSubmitted(true);
     clearCart();
   };
