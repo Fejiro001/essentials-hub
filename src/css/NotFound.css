@@ -1,0 +1,53 @@
+.not, .page {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.page {
+  padding-block: 10rem 25rem;
+  max-width: 50rem;
+  width: 100%;
+}
+
+.page h2 {
+  font-size: 20rem;
+  margin-bottom: 1rem;
+}
+
+.page p:first-of-type {
+  font-size: var(--fs-md);
+}
+
+.page p {
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+}
+
+.page a {
+  margin-top: 3rem;
+  width: fit-content;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .not {
+    padding-top: 6rem;
+  }
+
+  .page h2 {
+    font-size: 15rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .not {
+    padding-top: 4rem;
+    padding-inline: 1rem;
+  }
+
+  .page h2 {
+    font-size: 10rem;
+  }
+}
