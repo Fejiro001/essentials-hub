@@ -26,7 +26,7 @@ function CatalogProduct(props) {
   };
 
   return (
-    <>
+    <li className="product">
       <div className="product-image">
         <Link to={`/catalog/${product.id}`}>
           <img src={product.image} alt={product.title} loading="lazy" />
@@ -80,7 +80,7 @@ function CatalogProduct(props) {
           </button>
         </div>
       </div>
-    </>
+    </li>
   );
 }
 

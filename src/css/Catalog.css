@@ -81,13 +81,13 @@
   gap: 4rem 3rem;
 }
 
-.catalog-products .product {
+.product {
   position: relative;
   height: 100%;
   border: 1px solid var(--color-gray);
 }
 
-.catalog-products .product,
+.product,
 .favorite {
   transition: var(--transition);
 }
@@ -120,7 +120,7 @@
   }
 }
 
-.catalog-products .product:hover {
+.product:hover {
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
 
   .product-image img {

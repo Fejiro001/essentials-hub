@@ -1,60 +1,55 @@
 import { Link } from "react-router-dom";
-import { LuHeart, LuArrowLeft } from "react-icons/lu";
+import { LuArrowLeft, LuHeart } from "react-icons/lu";
+import { useFavoritesStore } from "../stores/favoritesStore";
 import "../css/Favorites.css";
+import CatalogProduct from "../components/CatalogProduct";
 
 function Favorites() {
-  const favoritesList = [];
+  const favorites = useFavoritesStore((state) => state.favorites);
 
   return (
     <main className="favorites-page">
       <section className="secondary-banner">
-        <div className="container">
+        <div className="container banner-container">
           <h2>Favorites</h2>
-          <p>Items you've saved</p>
+          <p>Items you've saved for later</p>
         </div>
       </section>
-      <div className="container">
-        {favoritesList.length === 0 ? (
-          <div className="favorites-page-empty">
-            <section className="empty">
-              <LuHeart className="empty-icon" />
-              <h2>Your Wishlist is Empty</h2>
-              <p>Items you save while browsing will appear right here!</p>
-              <Link to="/catalog" className="explore-btn">
-                Explore Catalog
-              </Link>
-            </section>
+
+      <section className="favorites-body container">
+        {favorites.length === 0 ? (
+          <div className="favorites-empty">
+            <LuHeart className="empty-icon" />
+            <h3>Your wishlist is empty</h3>
+            <p>
+              Save products while browsing and they will appear here for quick
+              access later.
+            </p>
+            <Link to="/catalog" className="primary-btn">
+              Explore Catalog
+            </Link>
           </div>
         ) : (
           <>
-            <section className="favorites-header">
-              <Link className="back-to-catalog" to="/catalog">
-                <LuArrowLeft /> Back To Catalog
-              </Link>
-              <h2>My Favorite Items</h2>
-              <p>You have {favoritesList.length} saved essentials</p>
-            </section>
-            <section className="favorites-grid">
-              {favoritesList.map((item) => (
-                <div key={item.id} className="favorite-card">
-                  <div className="img-container">
-                    <img src={item.image} alt={item.title} />
-                  </div>
-                  <div className="card-details">
-                    <h3>{item.title}</h3>
-                    <span className="price">${item.price}</span>
-                    <Link
-                      to={`/catalog/${item.id}`}
-                      className="view-product-btn">
-                      View Item
-                    </Link>
-                  </div>
-                </div>
+            <div className="favorites-header">
+              <div>
+                <Link className="back-to-catalog" to="/catalog">
+                  <LuArrowLeft />
+                  <span>Back To Catalog</span>
+                </Link>
+                <p className="favorites-amount">
+                  You have {favorites.length} saved item(s)
+                </p>
+              </div>
+            </div>
+            <div className="favorites-grid">
+              {favorites.map((item) => (
+                <CatalogProduct key={item.id} product={item} />
               ))}
-            </section>
+            </div>
           </>
         )}
-      </div>
+      </section>
     </main>
   );
 }
