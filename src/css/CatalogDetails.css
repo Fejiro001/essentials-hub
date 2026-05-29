@@ -4,7 +4,10 @@
   text-overflow: ellipsis;
 }
 
-.banner-container p,
+.banner-container p {
+  text-transform: capitalize;
+}
+
 .back-to-catalog {
   text-transform: uppercase;
 }

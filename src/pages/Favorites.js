@@ -10,7 +10,7 @@ function Favorites() {
   return (
     <main className="favorites-page">
       <section className="secondary-banner">
-        <div className="container banner-container">
+        <div className="container">
           <h2>Favorites</h2>
           <p>Items you've saved for later</p>
         </div>
@@ -20,7 +20,6 @@ function Favorites() {
         {favorites.length === 0 ? (
           <div className="favorites-empty">
             <LuHeart className="empty-icon" />
-            <h3>Your wishlist is empty</h3>
             <p>
               Save products while browsing and they will appear here for quick
               access later.
