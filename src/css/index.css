@@ -554,7 +554,7 @@ footer {
   justify-content: center;
   background-color: white;
   color: black;
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   font-weight: 600;
   border-radius: 50%;
   border: 2px solid var(--color-black);
