@@ -8,6 +8,7 @@ import {
   LuPlus
 } from "react-icons/lu";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 function CatalogProduct(props) {
   const { product } = props;
@@ -22,14 +23,18 @@ function CatalogProduct(props) {
   return (
     <>
       <div className="product-image">
-        <img src={product.image} alt={product.title} loading="lazy" />
-        <button className="favorite active">
+        <Link to={`/catalog/${product.id}`}>
+          <img src={product.image} alt={product.title} loading="lazy" />
+        </Link>
+        <button className="favorite">
           <LuHeart />
         </button>
       </div>
       <div className="product-info">
         <p className="product-category">{product.category}</p>
-        <h3 className="product-title">{product.title}</h3>
+        <h3 className="product-title">
+          <Link to={`/catalog/${product.id}`}>{product.title}</Link>
+        </h3>
         <div className="product-extra">
           <p className="product-price">${product.price}</p>
           <div className="product-stats">
@@ -47,13 +52,6 @@ function CatalogProduct(props) {
               disabled={quantityCount === 1}>
               <LuMinus />
             </button>
-            {/* <input
-              className="decrement"
-              type="button"
-              value="-"
-              onClick={() => setQuantityCount(quantityCount - 1)}
-              disabled={quantityCount === 1}
-            /> */}
             <input
               className="quantity"
               type="text"
@@ -66,12 +64,6 @@ function CatalogProduct(props) {
               onClick={() => setQuantityCount(quantityCount + 1)}>
               <LuPlus />
             </button>
-            {/* <input
-              className="increment"
-              type="button"
-              value="+"
-              onClick={() => setQuantityCount(quantityCount + 1)}
-            /> */}
           </div>
           <button
             onClick={() => addItemToCart(product)}

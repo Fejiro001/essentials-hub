@@ -246,7 +246,7 @@
   color: var(--color-muted);
 }
 
-.ethos-txt p, h2 {
+.ethos-txt p, .ethos-txt h2 {
   margin-bottom: 20px;
 }
 
