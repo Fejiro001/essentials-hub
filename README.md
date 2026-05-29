@@ -71,6 +71,59 @@ This project was developed to demonstrate modern React front-end development con
 - Added success modal after checkout with navigation to orders page
 - Optimized UI rendering using memoization (useMemo) for derived values like totals and related products
 
+### Persisted cart across sessions using Zustand (Local Storage)
+
+```jsx
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+export const useCartStore = create(
+  persist(
+    (set, get) => ({
+      cart: [],
+
+      addItem: (product, quantity = 1) => {
+        const cart = get().cart;
+        const productExists = cart.find((item) => item.id === product.id);
+
+        if (productExists) {
+          const updatedCart = cart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + quantity }
+              : item
+          );
+
+          set({ cart: updatedCart });
+        } else {
+          set({ cart: [...cart, { ...product, quantity }] });
+        }
+      },
+
+      removeItem: (id) => {
+        const updatedCart = get().cart.filter((item) => item.id !== id);
+        set({ cart: updatedCart });
+      },
+
+      updateQuantity: (id, quantity) => {
+        if (quantity <= 0) {
+          get().removeItem(id);
+          return;
+        }
+
+        const updatedCart = get().cart.map((item) =>
+          item.id === id ? { ...item, quantity } : item
+        );
+
+        set({ cart: updatedCart });
+      },
+
+      clearCart: () => set({ cart: [] })
+    }),
+    { name: "cart" }
+  )
+);
+```
+
 ## Demo
 
 Click [here](https://Fejiro001.github.io/essentials-hub) to demo
