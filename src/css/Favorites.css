@@ -35,3 +35,21 @@
   margin-bottom: 2rem;
   line-height: 1.6;
 }
+
+.favorites-page-empty .explore-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-decoration: uppercase;
+    letter-spacing: 0.05em;
+  transition: var(--transition);
+}
+
+.favorites-page-empty .explore-btn:hover {
+  background-color: var(--color-muted);
+  color: var(--color-white);
+}
+
