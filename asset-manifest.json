@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/essentials-hub/static/css/main.6b8966bf.css",
-    "main.js": "/essentials-hub/static/js/main.bb998c5a.js",
+    "main.js": "/essentials-hub/static/js/main.f29cb8f8.js",
     "static/media/about.jpg": "/essentials-hub/static/media/about.b8ffae5f9fa1ad76a413.jpg",
     "static/media/electronics.png": "/essentials-hub/static/media/electronics.5c7d279c1c42d7980075.png",
     "static/media/jewelry.png": "/essentials-hub/static/media/jewelry.f2e80054c5c27a44e05e.png",
@@ -11,10 +11,10 @@
     "static/media/logo.svg": "/essentials-hub/static/media/logo.482063675fce36cc3c57a101c836299e.svg",
     "index.html": "/essentials-hub/index.html",
     "main.6b8966bf.css.map": "/essentials-hub/static/css/main.6b8966bf.css.map",
-    "main.bb998c5a.js.map": "/essentials-hub/static/js/main.bb998c5a.js.map"
+    "main.f29cb8f8.js.map": "/essentials-hub/static/js/main.f29cb8f8.js.map"
   },
   "entrypoints": [
     "static/css/main.6b8966bf.css",
-    "static/js/main.bb998c5a.js"
+    "static/js/main.f29cb8f8.js"
   ]
 }
