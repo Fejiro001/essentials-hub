@@ -1,28 +1,27 @@
-import React from "react";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LuHeart, LuArrowLeft } from "react-icons/lu";
 import "../css/Favorites.css";
 
-function Favorites () {
-    const favoritesList = [];
+function Favorites() {
+  const favoritesList = [];
 
-    if (favoritesList.length === 0) {
-        return (
-            <main className="favorites-page-empty container">
-                <div className="empty">
-                    <LuHeart className="empty-icon"/>
-                    <h2>Your Wishlist is Empty</h2>
-                    <p>Items you save while browsing will appear right here!</p>
-                    <Link to='/catalog' className="explore-btn">
-                        Explore Catalog
-                    </Link>
-                </div>
-            </main>
-        );
-    }
+  if (favoritesList.length === 0) {
     return (
-        <main className="favorites-page container">
-        <section className="favorites-header">
+      <main className="favorites-page-empty container">
+        <div className="empty">
+          <LuHeart className="empty-icon" />
+          <h2>Your Wishlist is Empty</h2>
+          <p>Items you save while browsing will appear right here!</p>
+          <Link to="/catalog" className="explore-btn">
+            Explore Catalog
+          </Link>
+        </div>
+      </main>
+    );
+  }
+  return (
+    <main className="favorites-page container">
+      <section className="favorites-header">
         <Link className="back-to-catalog" to="/catalog">
           <LuArrowLeft /> Back To Catalog
         </Link>
@@ -46,7 +45,7 @@ function Favorites () {
         ))}
       </section>
     </main>
-    );
+  );
 }
 
 export default Favorites;

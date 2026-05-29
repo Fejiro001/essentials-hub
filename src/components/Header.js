@@ -6,6 +6,12 @@ import UserProfileModal from "./UserProfileModal";
 import { useAuthStore } from "../stores/authStore";
 import { useCartStore } from "../stores/cartStore";
 
+const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/catalog", label: "Catalog" },
+  { to: "/cart", label: "Cart" }
+];
+
 function Header(props) {
   const { setIsLoginModalOpen } = props;
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -14,7 +20,7 @@ function Header(props) {
   const user = useAuthStore((state) => state.user);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const cartCount = useCartStore((state) =>
-    state.cart.reduce((total, item) => item.quantity + total, 0)
+    state.cart.reduce((sum, item) => sum + item.quantity, 0)
   );
 
   return (
@@ -27,27 +33,16 @@ function Header(props) {
           </Link>
           <nav className={isMenuOpen ? "menu-open" : ""}>
             <ul className="nav-links">
-              <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) => (isActive ? "active" : "")}>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/catalog"
-                  className={({ isActive }) => (isActive ? "active" : "")}>
-                  Catalog
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/cart"
-                  className={({ isActive }) => (isActive ? "active" : "")}>
-                  Cart
-                </NavLink>
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.to}>
+                  <NavLink
+                    to={link.to}
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setMenuOpen(false)}>
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className="user-actions">
@@ -60,8 +55,8 @@ function Header(props) {
                 <button
                   className="user-btn"
                   title="User Profile"
-                  onClick={() => setProfileModal(!showProfileModal)}>
-                  <span>{user?.name[0]}</span>
+                  onClick={() => setProfileModal((prev) => !prev)}>
+                  <span>{user?.name?.[0]}</span>
                 </button>
                 {showProfileModal && (
                   <UserProfileModal setProfileModal={setProfileModal} />

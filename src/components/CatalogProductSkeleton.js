@@ -13,7 +13,7 @@ function CatalogProductSkeleton() {
         </div>
         <div className="product-actions">
           <div className="product-quantity skeleton-button"></div>
-          <div className="add-cart-btn skeleton-button"></div>
+          <div className="primary-btn skeleton-button"></div>
         </div>
       </div>
     </div>

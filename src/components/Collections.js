@@ -1,51 +1,62 @@
-import menCollect from '../media/men.png';
-import womenCollect from '../media/women.png';
-import jewelryCollect from '../media/jewelry.png';
-import electronicsCollect from '../media/electronics.png';
+import menCollect from "../media/men.png";
+import womenCollect from "../media/women.png";
+import jewelryCollect from "../media/jewelry.png";
+import electronicsCollect from "../media/electronics.png";
+import { Link } from "react-router-dom";
 
-function Collections () {
-    return (
-        <section className="collection">
-            <div className="collection-head">
-                <p>CHAPTER 01 - COLLECTIONS</p>
-                <h2 className='header-collect'>OUR COLLECTIONS</h2>
-            </div>
-            <div className='collection-imgs'>
-                <div className='box-img'>
-                    <img src={menCollect} className='collection-sing' alt='Mens Section'></img> 
-                    <div className='box-img-text'>
-                        <h3>Men's</h3>
-                        <p className='gray'>SHOP COLLECTION</p>
-                    </div> 
-                    <div className='overlay'></div>          
+export const COLLECTIONS = [
+  {
+    key: "men's",
+    title: "Men's",
+    image: menCollect,
+    alt: "Mens Section"
+  },
+  {
+    key: "women's",
+    title: "Women's",
+    image: womenCollect,
+    alt: "Womens Section"
+  },
+  {
+    key: "jewelery",
+    title: "Jewelry",
+    image: jewelryCollect,
+    alt: "Jewelry Section"
+  },
+  {
+    key: "electronics",
+    title: "Electronics",
+    image: electronicsCollect,
+    alt: "Electronics Section"
+  }
+];
+
+function Collections() {
+  return (
+    <div className="container">
+      <section className="collection">
+        <div className="collection-head">
+          <p>CHAPTER 01 - COLLECTIONS</p>
+          <h2 className="header-collect">OUR COLLECTIONS</h2>
+        </div>
+        <ul className="collection-imgs">
+          {COLLECTIONS.map((collection) => (
+            <Link to="/catalog" key={collection.key} className="box-img">
+              <li>
+                <div className="collection-sing">
+                  <img src={collection.image} alt={collection.alt} />
                 </div>
-                <div className='box-img'>
-                    <img src={womenCollect} className='collection-sing' alt='Womens Section'></img>
-                    <div className='box-img-text'>
-                        <h3>Women's</h3>
-                        <p className='gray'>SHOP COLLECTION</p>
-                    </div> 
-                    <div className='overlay'></div>
+                <div className="box-img-text">
+                  <h3>{collection.title}</h3>
+                  <p>SHOP COLLECTION</p>
                 </div>
-                <div className='box-img'>
-                    <img src={jewelryCollect} className='collection-sing' alt='Jewelry Section'></img>
-                    <div className='box-img-text'>
-                        <h3>Jewelry</h3>
-                        <p className='gray'>SHOP COLLECTION</p>
-                    </div> 
-                    <div className='overlay'></div>
-                </div>
-                <div className='box-img'>
-                    <img src={electronicsCollect} className='collection-sing' alt='Electronics Section'></img>      
-                    <div className='box-img-text'>
-                        <h3>Electronics</h3>
-                        <p className='gray'>SHOP COLLECTION</p>
-                    </div> 
-                    <div className='overlay'></div>          
-                </div>
-            </div>
-        </section>
-    );
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
 }
 
 export default Collections;

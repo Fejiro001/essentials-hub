@@ -1,5 +1,5 @@
 import "../css/CatalogDetails.css";
-import { Link, redirect, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
@@ -63,6 +63,7 @@ function CatalogDetails() {
     addItem(productDetail, quantityCount);
     toast.success("Item added to cart");
   };
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -70,6 +71,13 @@ function CatalogDetails() {
 
       try {
         const response = await axios.get(`${fakestoreURL}/${productId}`);
+
+        if (!response.data) {
+          toast.error("Product not found");
+          navigate("/");
+          return;
+        }
+
         setProductDetail(response.data);
       } catch (error) {
         toast.error(error.message);
@@ -81,9 +89,9 @@ function CatalogDetails() {
     if (productId) {
       fetchProducts();
     } else {
-      redirect("/");
+      navigate("/");
     }
-  }, [productId]);
+  }, [navigate, productId]);
 
   // Memoizing to prevent recalculations
   const relatedProducts = useMemo(() => {
@@ -105,7 +113,7 @@ function CatalogDetails() {
     <>
       {!loading && productDetail ? (
         <main>
-          <section className="catalog-banner">
+          <section className="secondary-banner">
             <div className="container banner-container">
               <h2>Catalog details</h2>
               <p>{productDetail.category}</p>
@@ -119,7 +127,11 @@ function CatalogDetails() {
               </Link>
               <article>
                 <div className="img-container">
-                  <img src={productDetail.image} alt={productDetail.title} />
+                  <img
+                    src={productDetail.image}
+                    alt={productDetail.title}
+                    loading="lazy"
+                  />
                 </div>
                 <div className="detail-info">
                   <p className="category">{productDetail.category}</p>
@@ -161,7 +173,7 @@ function CatalogDetails() {
                     </div>
                     <button
                       onClick={() => addItemToCart(productDetail)}
-                      className="add-cart-btn">
+                      className="primary-btn">
                       <LuShoppingBag />
                       <span>Add to cart</span>
                     </button>
@@ -173,7 +185,7 @@ function CatalogDetails() {
                     <li>
                       <LuTruck />
                       <p>Free shipping</p>
-                      <p>On orders $75+</p>
+                      <p>On orders $100+</p>
                     </li>
                     <li>
                       <LuRotateCcw />
@@ -205,18 +217,17 @@ function CatalogDetails() {
               <h2 className="title">Explore other collections</h2>
               <ul className="collection-imgs">
                 {collections.map((collection) => (
-                  <li className="box-img" key={collection.title}>
-                    <img
-                      src={collection.image}
-                      className="collection-sing"
-                      alt={collection.alt}
-                    />
-                    <div className="box-img-text">
-                      <h3>{collection.title}</h3>
-                      <p className="gray">SHOP COLLECTION</p>
-                    </div>
-                    <div className="overlay"></div>
-                  </li>
+                  <Link to="/catalog" key={collection.key} className="box-img">
+                    <li>
+                      <div className="collection-sing">
+                        <img src={collection.image} alt={collection.alt} />
+                      </div>
+                      <div className="box-img-text">
+                        <h3>{collection.title}</h3>
+                        <p>SHOP COLLECTION</p>
+                      </div>
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </section>

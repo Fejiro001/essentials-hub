@@ -13,6 +13,7 @@ function LoginModal(props) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm();
 
@@ -25,6 +26,7 @@ function LoginModal(props) {
 
     toast.success("Login successful!");
     setIsLoginModalOpen(false);
+    reset();
   };
 
   const handleSignUp = (data) => {
@@ -36,8 +38,8 @@ function LoginModal(props) {
     }
 
     toast.success("Account created successfully!");
-    setAuthMode("login");
     setIsLoginModalOpen(false);
+    reset();
   };
 
   return (

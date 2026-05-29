@@ -67,7 +67,7 @@ function CatalogProduct(props) {
           </div>
           <button
             onClick={() => addItemToCart(product)}
-            className="add-cart-btn">
+            className="primary-btn">
             <LuShoppingBag />
             <span>Add</span>
           </button>
