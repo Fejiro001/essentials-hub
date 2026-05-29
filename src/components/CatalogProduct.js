@@ -9,11 +9,16 @@ import {
 } from "react-icons/lu";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import { useFavoritesStore } from "../stores/favoritesStore";
 
 function CatalogProduct(props) {
   const { product } = props;
   const [quantityCount, setQuantityCount] = useState(1);
   const addItem = useCartStore((state) => state.addItem);
+  const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
+  const isFavorited = useFavoritesStore((state) =>
+    state.isFavorite(product.id)
+  );
 
   const addItemToCart = (product) => {
     addItem(product, quantityCount);
@@ -21,12 +26,14 @@ function CatalogProduct(props) {
   };
 
   return (
-    <>
+    <li className="product">
       <div className="product-image">
         <Link to={`/catalog/${product.id}`}>
           <img src={product.image} alt={product.title} loading="lazy" />
         </Link>
-        <button className="favorite">
+        <button
+          onClick={() => toggleFavorite(product)}
+          className={`favorite ${isFavorited ? "favorited" : ""}`}>
           <LuHeart />
         </button>
       </div>
@@ -73,7 +80,7 @@ function CatalogProduct(props) {
           </button>
         </div>
       </div>
-    </>
+    </li>
   );
 }
 

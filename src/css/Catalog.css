@@ -68,7 +68,7 @@
   border-color: var(--color-black);
 }
 
-.catalog-filter .filters button.active {
+.catalog-filter .filters button.favorited {
   background-color: var(--color-black);
   color: var(--color-white);
   border-color: var(--color-black);
@@ -81,13 +81,13 @@
   gap: 4rem 3rem;
 }
 
-.catalog-products .product {
+.product {
   position: relative;
   height: 100%;
   border: 1px solid var(--color-gray);
 }
 
-.catalog-products .product,
+.product,
 .favorite {
   transition: var(--transition);
 }
@@ -105,12 +105,12 @@
   color: var(--color-white);
 }
 
-.favorite.active svg {
+.favorite.favorited svg {
   fill: var(--color-black);
   color: var(--color-black);
 }
 
-.favorite.active:hover {
+.favorite.favorited:hover {
   background-color: var(--color-black);
   fill: var(--color-white);
 
@@ -120,7 +120,7 @@
   }
 }
 
-.catalog-products .product:hover {
+.product:hover {
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
 
   .product-image img {

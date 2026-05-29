@@ -14,8 +14,13 @@ function UserProfileModal({ setProfileModal }) {
       </div>
       <ul className="profile-options">
         <li>
-          <LuBox />
-          <span>Orders</span>
+          <Link
+            to="/orders"
+            className="profile-link"
+            onClick={() => setProfileModal(false)}>
+            <LuBox />
+            <span>Orders</span>
+          </Link>
         </li>
         <li>
           <Link

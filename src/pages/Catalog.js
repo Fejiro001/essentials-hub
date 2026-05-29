@@ -59,9 +59,7 @@ function Catalog() {
                   <CatalogProductSkeleton key={index} />
                 ))
               : searchedProducts.map((product) => (
-                  <li className="product" key={product.id}>
-                    <CatalogProduct product={product} />
-                  </li>
+                  <CatalogProduct key={product.id} product={product} />
                 ))}
           </ul>
         </div>
