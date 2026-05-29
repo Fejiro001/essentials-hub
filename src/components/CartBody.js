@@ -46,7 +46,7 @@ function CartBody () {
                                         <div className="order-dets">
                                             <p className="cart-categ">{(cat.category).toUpperCase()}</p>
                                             <h5 className="cart-name">{cat.title}</h5>
-                                            <p>${cat.price} each</p>
+                                            <p className="cat-price">${cat.price} each</p>
                                             <div className="button-area">
                                                 <div className="cart-quantity">
                                                     <button onClick={() =>
