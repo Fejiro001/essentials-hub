@@ -21,7 +21,7 @@ function CartBody() {
           <LuShoppingBag className="bag-icon" />
           <p>Your cart is empty</p>
           <NavLink to="/catalog" className="cont-shop">
-            <button className="no-items">CONTINUE SHOPPING</button>
+            <button className="no-items primary-btn">CONTINUE SHOPPING</button>
           </NavLink>
         </div>
       ) : (

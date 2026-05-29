@@ -17,6 +17,8 @@
   min-height: 300px;
 }
 
+
+
 .bag-icon {
   color: var(--color-muted);
   font-size: 50px;
@@ -35,7 +37,11 @@
 }
 
 .cont-shop {
-  text-decoration: none;
+    text-decoration: none;
+}
+
+.cont-shop button{
+    width: 100%;
 }
 
 .top-order {
