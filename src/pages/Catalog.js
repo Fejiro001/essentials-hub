@@ -5,6 +5,7 @@ import CatalogProductSkeleton from "../components/CatalogProductSkeleton";
 import { useDebounce } from "../hooks/useDebounce";
 import { useProducts } from "../hooks/useProducts";
 import CatalogFilters from "../components/CatalogFilters";
+import PageWrapper from "../components/PageWrapper";
 
 function Catalog() {
   const [filter, setFilter] = useState("all");
@@ -36,42 +37,44 @@ function Catalog() {
   );
 
   return (
-    <main>
-      <section className="secondary-banner">
-        <div className="container">
-          <h2>The Catalog</h2>
-          <p>Explore our curated collection of essentials</p>
-        </div>
-      </section>
-      <section className="catalog">
-        <div className="container">
-          <CatalogFilters
-            search={search}
-            setSearch={setSearch}
-            filter={filter}
-            setFilter={setFilter}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-          />
-          {!loading && searchedProducts.length === 0 ? (
-            <div className="empty-catalog">
-              <h3>No products found</h3>
-              <p>Try adjusting your filters or search terms.</p>
-            </div>
-          ) : (
-            <ul className="catalog-products">
-              {loading
-                ? Array.from({ length: 20 }).map((_, index) => (
-                    <CatalogProductSkeleton key={index} />
-                  ))
-                : searchedProducts.map((product) => (
-                    <CatalogProduct key={product.id} product={product} />
-                  ))}
-            </ul>
-          )}
-        </div>
-      </section>
-    </main>
+    <PageWrapper>
+      <main>
+        <section className="secondary-banner">
+          <div className="container">
+            <h2>The Catalog</h2>
+            <p>Explore our curated collection of essentials</p>
+          </div>
+        </section>
+        <section className="catalog">
+          <div className="container">
+            <CatalogFilters
+              search={search}
+              setSearch={setSearch}
+              filter={filter}
+              setFilter={setFilter}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+            />
+            {!loading && searchedProducts.length === 0 ? (
+              <div className="empty-catalog">
+                <h3>No products found</h3>
+                <p>Try adjusting your filters or search terms.</p>
+              </div>
+            ) : (
+              <ul className="catalog-products">
+                {loading
+                  ? Array.from({ length: 20 }).map((_, index) => (
+                      <CatalogProductSkeleton key={index} />
+                    ))
+                  : searchedProducts.map((product) => (
+                      <CatalogProduct key={product.id} product={product} />
+                    ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      </main>
+    </PageWrapper>
   );
 }
 

@@ -8,6 +8,7 @@ import SuccessPopup from "../components/SuccessPopup";
 import { Link } from "react-router-dom";
 import { LuShoppingBag } from "react-icons/lu";
 import { useOrderStore } from "../stores/orderStore";
+import PageWrapper from "../components/PageWrapper";
 
 function Checkout() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -43,44 +44,46 @@ function Checkout() {
   };
 
   return (
-    <main className="checkout">
-      <section className="secondary-banner">
-        <div className="container">
-          <h2>CHECKOUT</h2>
-        </div>
-      </section>
-
-      {isCartEmpty ? (
-        <section className="checkout-body container">
-          <div className="empty-checkout">
-            <LuShoppingBag className="bag-icon" />
-            <p>Your cart is empty. Add some products first.</p>
-            <Link to="/catalog" className="primary-btn">
-              Shop Now
-            </Link>
+    <PageWrapper>
+      <main className="checkout">
+        <section className="secondary-banner">
+          <div className="container">
+            <h2>CHECKOUT</h2>
           </div>
         </section>
-      ) : (
-        <div className="container">
-          <section className="checkout-body checkout-layout">
-            <CheckoutForm
-              register={register}
-              handleSubmit={handleSubmit}
-              errors={errors}
-              onSubmit={handlePaymentSubmit}
-            />
 
-            <OrderSummary
-              cart={cart}
-              subtotal={subtotal}
-              vat={vat}
-              total={total}
-            />
+        {isCartEmpty ? (
+          <section className="checkout-body container">
+            <div className="empty-checkout">
+              <LuShoppingBag className="bag-icon" />
+              <p>Your cart is empty. Add some products first.</p>
+              <Link to="/catalog" className="primary-btn">
+                Shop Now
+              </Link>
+            </div>
           </section>
-          <SuccessPopup isSubmitted={isSubmitted} />
-        </div>
-      )}
-    </main>
+        ) : (
+          <div className="container">
+            <section className="checkout-body checkout-layout">
+              <CheckoutForm
+                register={register}
+                handleSubmit={handleSubmit}
+                errors={errors}
+                onSubmit={handlePaymentSubmit}
+              />
+
+              <OrderSummary
+                cart={cart}
+                subtotal={subtotal}
+                vat={vat}
+                total={total}
+              />
+            </section>
+            <SuccessPopup isSubmitted={isSubmitted} />
+          </div>
+        )}
+      </main>
+    </PageWrapper>
   );
 }
 
