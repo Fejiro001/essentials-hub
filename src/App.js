@@ -12,10 +12,12 @@ import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import CartFAB from "./components/CartFAB";
+import { useCartStore } from "./stores/cartStore";
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState("login");
+  const cart = useCartStore((state) => state.cart);
 
   return (
     <>
@@ -39,7 +41,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-      <CartFAB />
+      {cart.length > 0 && <CartFAB />}
     </>
   );
 }
