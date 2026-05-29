@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/essentials-hub/static/css/main.edee6b2b.css",
+    "main.js": "/essentials-hub/static/js/main.517492c7.js",
+    "static/media/about.jpg": "/essentials-hub/static/media/about.b8ffae5f9fa1ad76a413.jpg",
+    "static/media/electronics.png": "/essentials-hub/static/media/electronics.5c7d279c1c42d7980075.png",
+    "static/media/jewelry.png": "/essentials-hub/static/media/jewelry.f2e80054c5c27a44e05e.png",
+    "static/media/women.png": "/essentials-hub/static/media/women.640e984d52957ceca89d.png",
+    "static/media/secondary-banner.png": "/essentials-hub/static/media/secondary-banner.7d7de341df91ae04153f.png",
+    "static/media/men.png": "/essentials-hub/static/media/men.580c5a89f4b06da32581.png",
+    "static/media/logo.svg": "/essentials-hub/static/media/logo.482063675fce36cc3c57a101c836299e.svg",
+    "index.html": "/essentials-hub/index.html",
+    "main.edee6b2b.css.map": "/essentials-hub/static/css/main.edee6b2b.css.map",
+    "main.517492c7.js.map": "/essentials-hub/static/js/main.517492c7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.edee6b2b.css",
+    "static/js/main.517492c7.js"
+  ]
+}
