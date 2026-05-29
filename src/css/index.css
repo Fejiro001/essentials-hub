@@ -543,8 +543,39 @@ footer {
   border: 2px solid var(--color-black);
 }
 
+.secondary-banner {
+  background: url(../media/secondary-banner.png) no-repeat center/cover
+    rgb(255, 255, 255, 0.5);
+  background-blend-mode: overlay;
+  padding-block: 6rem;
+}
+
+.secondary-banner h2 {
+  font-size: var(--fs-5xl);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.secondary-banner p {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
 /* Media Queries */
+/* Tablet */
+@media (max-width: 1023px) {
+  .secondary-banner h2 {
+    font-size: var(--fs-4xl);
+  }
+}
+
+/* Mobile */
 @media (max-width: 767px) {
+  .secondary-banner h2 {
+    font-size: var(--fs-3xl);
+  }
+
   .logo h1 {
     display: none;
   }

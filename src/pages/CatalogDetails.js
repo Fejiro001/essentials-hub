@@ -1,5 +1,5 @@
 import "../css/CatalogDetails.css";
-import { Link, redirect, useParams } from "react-router-dom";
+import { Link, redirect, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
@@ -63,6 +63,7 @@ function CatalogDetails() {
     addItem(productDetail, quantityCount);
     toast.success("Item added to cart");
   };
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -81,9 +82,9 @@ function CatalogDetails() {
     if (productId) {
       fetchProducts();
     } else {
-      redirect("/");
+      navigate("/");
     }
-  }, [productId]);
+  }, [navigate, productId]);
 
   // Memoizing to prevent recalculations
   const relatedProducts = useMemo(() => {
@@ -105,7 +106,7 @@ function CatalogDetails() {
     <>
       {!loading && productDetail ? (
         <main>
-          <section className="catalog-banner">
+          <section className="secondary-banner">
             <div className="container banner-container">
               <h2>Catalog details</h2>
               <p>{productDetail.category}</p>

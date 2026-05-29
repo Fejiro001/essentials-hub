@@ -1,8 +1,6 @@
-import { FiShoppingBag } from "react-icons/fi";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { LuMinus, LuPlus, LuShoppingBag, LuTrash } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import { useCartStore } from "../stores/cartStore";
-import { LuMinus, LuPlus } from "react-icons/lu";
 
 function CartBody() {
   const cart = useCartStore((state) => state.cart);
@@ -18,7 +16,7 @@ function CartBody() {
     <section className="middle-cart">
       {cart.length === 0 ? (
         <div className="empty-cart container">
-          <FiShoppingBag className="bag-icon" />
+          <LuShoppingBag className="bag-icon" />
           <p>Your cart is empty</p>
           <NavLink to="/catalog" className="cont-shop">
             <button className="no-items">CONTINUE SHOPPING</button>
@@ -30,7 +28,7 @@ function CartBody() {
             <div className="top-order">
               <p>{cart.length} ITEM(S)</p>
               <button className="all-out" onClick={() => clearCart()}>
-                <FaRegTrashAlt /> REMOVE ALL
+                <LuTrash /> REMOVE ALL
               </button>
             </div>
             {cart.map((cat) => (

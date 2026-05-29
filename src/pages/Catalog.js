@@ -37,7 +37,7 @@ function Catalog() {
 
   return (
     <main>
-      <section className="catalog-banner">
+      <section className="secondary-banner">
         <div className="container">
           <h2>The Catalog</h2>
           <p>Explore our curated collection of essentials</p>

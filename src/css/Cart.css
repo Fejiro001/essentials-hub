@@ -3,19 +3,6 @@
   padding: var(--section-padding);
 }
 
-.cart-banner {
-  background: url(../media/secondary-banner.png) no-repeat center/cover
-    rgb(255, 255, 255, 0.5);
-  background-blend-mode: overlay;
-  padding-block: 6rem;
-}
-
-.cart-banner h2 {
-  font-size: var(--fs-5xl);
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
 /* Main cart section */
 .cart-cont {
   min-height: calc(100svh - 395px);
