@@ -114,12 +114,28 @@ h2.title {
 
   svg {
     width: 2.5rem;
+    fill: var(--color-white);
   }
 }
 
 .favorite-btn:hover {
   background-color: var(--color-black);
   color: var(--color-white);
+}
+
+.favorite-btn.favorited svg {
+  fill: var(--color-black);
+  color: var(--color-black);
+}
+
+.favorite-btn.favorited:hover {
+  background-color: var(--color-black);
+  fill: var(--color-white);
+
+  svg {
+    fill: var(--color-white);
+    color: var(--color-white);
+  }
 }
 
 .extra-benefits {
