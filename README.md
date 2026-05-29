@@ -70,3 +70,7 @@ This project was developed to demonstrate modern React front-end development con
 - Implemented conditional rendering for empty states (cart, favorites, orders)
 - Added success modal after checkout with navigation to orders page
 - Optimized UI rendering using memoization (useMemo) for derived values like totals and related products
+
+## Demo
+
+Click [here](https://Fejiro001.github.io/essentials-hub) to demo
