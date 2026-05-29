@@ -12,7 +12,6 @@ import { useOrderStore } from "../stores/orderStore";
 function Checkout() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const cart = useCartStore((state) => state.cart);
-  const clearCart = useCartStore((state) => state.clearCart);
   const isCartEmpty = cart.length === 0;
 
   const {
@@ -40,9 +39,7 @@ function Checkout() {
     };
 
     addOrder(order);
-
     setIsSubmitted(true);
-    clearCart();
   };
 
   return (
