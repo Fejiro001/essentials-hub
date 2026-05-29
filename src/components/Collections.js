@@ -4,7 +4,7 @@ import jewelryCollect from "../media/jewelry.png";
 import electronicsCollect from "../media/electronics.png";
 import { Link } from "react-router-dom";
 
-const COLLECTIONS = [
+export const COLLECTIONS = [
   {
     key: "men's",
     title: "Men's",
@@ -41,8 +41,8 @@ function Collections() {
         </div>
         <ul className="collection-imgs">
           {COLLECTIONS.map((collection) => (
-            <Link to="/catalog" key={collection.key}>
-              <li className="box-img">
+            <Link to="/catalog" key={collection.key} className="box-img">
+              <li>
                 <div className="collection-sing">
                   <img src={collection.image} alt={collection.alt} />
                 </div>

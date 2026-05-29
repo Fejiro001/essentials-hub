@@ -156,6 +156,7 @@
   height: 45rem;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .collection-sing img {

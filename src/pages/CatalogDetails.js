@@ -119,7 +119,11 @@ function CatalogDetails() {
               </Link>
               <article>
                 <div className="img-container">
-                  <img src={productDetail.image} alt={productDetail.title} />
+                  <img
+                    src={productDetail.image}
+                    alt={productDetail.title}
+                    loading="lazy"
+                  />
                 </div>
                 <div className="detail-info">
                   <p className="category">{productDetail.category}</p>
@@ -205,17 +209,17 @@ function CatalogDetails() {
               <h2 className="title">Explore other collections</h2>
               <ul className="collection-imgs">
                 {collections.map((collection) => (
-                  <li className="box-img" key={collection.key}>
-                    <img
-                      src={collection.image}
-                      className="collection-sing"
-                      alt={collection.alt}
-                    />
-                    <div className="box-img-text">
-                      <h3>{collection.title}</h3>
-                      <p>SHOP COLLECTION</p>
-                    </div>
-                  </li>
+                  <Link to="/catalog" key={collection.key} className="box-img">
+                    <li>
+                      <div className="collection-sing">
+                        <img src={collection.image} alt={collection.alt} />
+                      </div>
+                      <div className="box-img-text">
+                        <h3>{collection.title}</h3>
+                        <p>SHOP COLLECTION</p>
+                      </div>
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </section>
