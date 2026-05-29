@@ -1,12 +1,10 @@
-README
-
 # Essentials Hub
 
 ![My Tasks Preview](./src/media/website.png)
 
 ## Description
 
-_Essentials Hub_ is a modern and fully functional e-commerce web application built with React, designed to deliver a smooth and responsive online shopping experience. The store features a curated selection of clothing, electronics, and jewelry products with dynamic browsing, interactive UI elements, and seamless cart management.
+**Essentials Hub** is a modern and fully functional e-commerce web application built with React, designed to deliver a smooth and responsive online shopping experience. The store features a curated selection of clothing, electronics, and jewelry products with dynamic browsing, interactive UI elements, and seamless cart management.
 
 This project was developed to demonstrate modern React front-end development concepts through the creation of a fully functional online store. The application focuses on dynamic state management, reusable component architecture, responsive design principles, client-side routing, and persistent application state. It also emphasizes clean UI structure, efficient rendering of product data, and seamless navigation between core e-commerce flows including product browsing, cart management, checkout, and order tracking.
 
