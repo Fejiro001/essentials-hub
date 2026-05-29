@@ -24,6 +24,8 @@ export const useFavoritesStore = create(
         });
       },
 
+      isFavorite: (id) => get().favorites.some((item) => item.id === id),
+
       // Toggle
       toggleFavorite: (product) => {
         const exists = get().favorites.find((item) => item.id === product.id);

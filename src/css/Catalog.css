@@ -68,7 +68,7 @@
   border-color: var(--color-black);
 }
 
-.catalog-filter .filters button.active {
+.catalog-filter .filters button.favorited {
   background-color: var(--color-black);
   color: var(--color-white);
   border-color: var(--color-black);
@@ -105,12 +105,12 @@
   color: var(--color-white);
 }
 
-.favorite.active svg {
+.favorite.favorited svg {
   fill: var(--color-black);
   color: var(--color-black);
 }
 
-.favorite.active:hover {
+.favorite.favorited:hover {
   background-color: var(--color-black);
   fill: var(--color-white);
 
