@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import CartFAB from "./components/CartFAB";
 import { useCartStore } from "./stores/cartStore";
+import Orders from "./pages/Orders";
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -40,6 +41,7 @@ function App() {
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/checkout" element={<Checkout />} />
         <Route exact path="/favorites" element={<Favorites />} />
+        <Route exact path="/orders" element={<Orders />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
