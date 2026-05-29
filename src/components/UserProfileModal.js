@@ -17,7 +17,8 @@ function UserProfileModal(props) {
           <span>Orders</span>
         </li>
         <li>
-          <Link to="/Favorites" onClick={() => props.setProfileModal(false)}>
+          <Link to="/Favorites"  className="profile-link" 
+          onClick={() => props.setProfileModal(false)}>
           <LuHeart />
           <span>Favorites</span>
           </Link>

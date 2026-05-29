@@ -12,7 +12,7 @@ function Favorites () {
                 <div className="empty">
                     <LuHeart className="empty-icon"/>
                     <h2>Your Wishlist is Empty</h2>
-                    <p>Items you ssave while browsing will appear right here!</p>
+                    <p>Items you save while browsing will appear right here!</p>
                     <Link to='/catalog' className="explore-btn">
                         Explore Catalog
                     </Link>
