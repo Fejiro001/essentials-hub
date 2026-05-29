@@ -205,7 +205,7 @@ function CatalogDetails() {
               <h2 className="title">Explore other collections</h2>
               <ul className="collection-imgs">
                 {collections.map((collection) => (
-                  <li className="box-img" key={collection.title}>
+                  <li className="box-img" key={collection.key}>
                     <img
                       src={collection.image}
                       className="collection-sing"
@@ -213,9 +213,8 @@ function CatalogDetails() {
                     />
                     <div className="box-img-text">
                       <h3>{collection.title}</h3>
-                      <p className="gray">SHOP COLLECTION</p>
+                      <p>SHOP COLLECTION</p>
                     </div>
-                    <div className="overlay"></div>
                   </li>
                 ))}
               </ul>

@@ -71,7 +71,7 @@ function Hero() {
 
         <div className="hero-btn">
           <div className="left-btn">
-            <Link className="shop" to="/Catalog">
+            <Link className="shop" to="/catalog">
               SHOP COLLECTION
             </Link>
           </div>

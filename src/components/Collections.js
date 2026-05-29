@@ -2,6 +2,7 @@ import menCollect from "../media/men.png";
 import womenCollect from "../media/women.png";
 import jewelryCollect from "../media/jewelry.png";
 import electronicsCollect from "../media/electronics.png";
+import { Link } from "react-router-dom";
 
 const COLLECTIONS = [
   {
@@ -40,18 +41,17 @@ function Collections() {
         </div>
         <ul className="collection-imgs">
           {COLLECTIONS.map((collection) => (
-            <li className="box-img" key={collection.title}>
-              <img
-                src={collection.image}
-                className="collection-sing"
-                alt={collection.alt}
-              />
-              <div className="box-img-text">
-                <h3>{collection.title}</h3>
-                <p className="gray">SHOP COLLECTION</p>
-              </div>
-              <div className="overlay"></div>
-            </li>
+            <Link to="/catalog" key={collection.key}>
+              <li className="box-img">
+                <div className="collection-sing">
+                  <img src={collection.image} alt={collection.alt} />
+                </div>
+                <div className="box-img-text">
+                  <h3>{collection.title}</h3>
+                  <p>SHOP COLLECTION</p>
+                </div>
+              </li>
+            </Link>
           ))}
         </ul>
       </section>
